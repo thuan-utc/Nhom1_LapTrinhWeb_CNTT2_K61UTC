@@ -15,6 +15,9 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 
         public IActionResult Index()
         {
+
+
+
             return View();
         }
 
