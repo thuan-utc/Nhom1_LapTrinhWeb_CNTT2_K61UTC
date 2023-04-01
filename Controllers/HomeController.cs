@@ -21,6 +21,7 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
         public IActionResult Privacy()
         {
             return View();
+            /////
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
