@@ -22,7 +22,6 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\" />
     <Folder Include="Areas\Cooperator\" />
-    <Folder Include="wwwroot\Media\" />
   </ItemGroup>
 
   <ItemGroup>
