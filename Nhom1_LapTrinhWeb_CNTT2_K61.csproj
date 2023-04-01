@@ -20,7 +20,24 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Media\" />
+    <Folder Include="Areas\Admin\" />
+    <Folder Include="Areas\Cooperator\" />
+    <Folder Include="wwwroot\Media\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Template\about.html" />
+    <None Include="wwwroot\Template\adminHub.html" />
+    <None Include="wwwroot\Template\booking.html" />
+    <None Include="wwwroot\Template\contact.html" />
+    <None Include="wwwroot\Template\cooperate.html" />
+    <None Include="wwwroot\Template\cooperateHub.html" />
+    <None Include="wwwroot\Template\index.html" />
+    <None Include="wwwroot\Template\login.html" />
+    <None Include="wwwroot\Template\loginadmin.html" />
+    <None Include="wwwroot\Template\myAccount.html" />
+    <None Include="wwwroot\Template\packages.html" />
+    <None Include="wwwroot\Template\services.html" />
   </ItemGroup>
 
 </Project>
