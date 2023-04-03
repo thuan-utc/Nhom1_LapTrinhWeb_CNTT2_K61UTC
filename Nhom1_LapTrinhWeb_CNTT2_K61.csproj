@@ -20,11 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\" />
-    <Folder Include="Areas\Cooperator\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="wwwroot\Template\about.html" />
     <None Include="wwwroot\Template\adminHub.html" />
     <None Include="wwwroot\Template\booking.html" />
@@ -37,6 +32,15 @@
     <None Include="wwwroot\Template\myAccount.html" />
     <None Include="wwwroot\Template\packages.html" />
     <None Include="wwwroot\Template\services.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Cooperator\Controllers\" />
+    <Folder Include="Areas\Cooperator\Data\" />
+    <Folder Include="Areas\Cooperator\Models\" />
+    <Folder Include="Areas\Cooperator\Views\" />
   </ItemGroup>
 
 </Project>
