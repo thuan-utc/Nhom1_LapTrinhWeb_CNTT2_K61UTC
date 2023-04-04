@@ -6,6 +6,7 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 {
     public class HomeController : Controller
     {
+        TourManagementContext db = new TourManagementContext();
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -15,9 +16,6 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 
         public IActionResult Index()
         {
-
-
-
             return View();
             /////////
         }
