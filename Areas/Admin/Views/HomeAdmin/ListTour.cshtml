@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Nhom1_LapTrinhWeb_CNTT2_K61.Models.Tour>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<p>
+    <a asp-action="AddTour">Create New</a>
+</p>
+<div class="tab-content">
+    <div class="tab-pane active">
+        <div class="table-data">
+            <div class="order">
+                <div class="head">
+                    <h3>Travel list waiting for approval</h3>
+                    <i class='bx bx-search'></i>
+                    <i class='bx bx-filter'></i>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                Tour
+                            </th>
+                            <th>
+                                Active
+                            </th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TenTour)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Active)
+                                </td>
+                                <td>
+                                    <input type="checkbox"/>
+                                </td>
+                                <td>
+                                    <button asp-action="Edit" asp-route-id="@item.MaTour">Edit</button> 
+                                    <button asp-action="Details" asp-route-id="@item.MaTour">Details</button> 
+                                    <button asp-action="Delete" asp-route-id="@item.MaTour">Delete</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
