@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Nhom1_LapTrinhWeb_CNTT2_K61.Models.Tour>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "LichSuAddTour";
+    Layout = "~/Areas/Cooperator/Views/Shared/_LayoutCooperator.cshtml";
+}
+<h1>LichSuAddTour</h1>
+
+<p>
+    <a asp-controller="HomeCooperator" asp-action="AddTour" class="create">
+        <button type="button" class="btn btn-outline-danger btn-icon-text" asp-controller="HomeCooperator" asp-action="AddTour">
+            <i class="mdi mdi-upload btn-icon-prepend upload"></i>Create New
+        </button>
+    </a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MaNv)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TenTour)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChiTietLt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NgayBd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NgayKt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnhTour)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaNv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenTour)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChiTietLt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayBd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayKt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnhTour)
+            </td>
+            
+            
+            <td>
+                <a asp-action="edittour" asp-route-etour="@item.MaTour">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MaTour">Details</a> |
+                <a asp-action="deleteTour" asp-route-id="@item.MaTour">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
