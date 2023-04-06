@@ -37,13 +37,25 @@
                                     @Html.DisplayFor(modelItem => item.TenTour)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Active)
+                                    @if (item.Active == 0)
+                                    {
+                                        <span class="status pending">Pending</span>
+                                    }
+                                    else if (item.Active == 1)
+                                    {
+                                        <span class="status completed">Approved</span>
+                                    }
                                 </td>
                                 <td>
-                                    <input type="checkbox"/>
+                                    <div class="item">
+                                        <div class="checkbox-rect">
+                                            <input type="checkbox" id="checkbox-rect1" name="check">
+                                            <label for="checkbox-rect1"></label>
+                                        </div>
+                                    </div>
                                 </td>
                                 <td>
-                                    <button asp-action="Edit" asp-route-id="@item.MaTour">Edit</button> 
+                                    <button asp-action="EditTour" asp-route-maTour="@item.MaTour">Edit</button> 
                                     <button asp-action="Details" asp-route-id="@item.MaTour">Details</button> 
                                     <button asp-action="Delete" asp-route-id="@item.MaTour">Delete</button>
                                 </td>

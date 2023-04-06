@@ -1,15 +1,15 @@
 ﻿@model Nhom1_LapTrinhWeb_CNTT2_K61.Models.Tour
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
-    ViewData["Title"] = "AddTour";
+    ViewData["Title"] = "EditTour";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h1>AddTour</h1>
+<h1>EditTour</h1>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form method="post" asp-action="AddTour">
+        <form method="post" asp-action="EditTour">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="MaNv" class="control-label"></label>
