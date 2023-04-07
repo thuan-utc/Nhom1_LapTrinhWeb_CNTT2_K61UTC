@@ -39,10 +39,9 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Cooperator\Controllers\" />
     <Folder Include="Areas\Cooperator\Data\" />
     <Folder Include="Areas\Cooperator\Models\" />
-    <Folder Include="Areas\Cooperator\Views\" />
+    <Folder Include="Areas\Cooperator\Views\HomeCooperateHub\" />
   </ItemGroup>
 
 </Project>
