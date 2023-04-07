@@ -37,14 +37,14 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Areas.Cooperator.Controllers
         
         public IActionResult AddTour(Tour tour)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 Tourdb.Tours.Add(tour);
                 Tourdb.SaveChanges();
                 return RedirectToAction("historyAddTour");
-            }
-            return View(tour);
-        }
+           // }
+           // return View(tour);
+        }//
 
 
         [Route("edittour")]
