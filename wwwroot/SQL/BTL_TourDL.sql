@@ -33,6 +33,7 @@ create table Tour(
 	MaNV int ,
 	DiaDiem nvarchar(30) not null,
 	TenTour nvarchar(30) not null,
+	DiaDiem nvarchar(30) not null,
 	ChiTietLT nvarchar(500) not null,
 	NgayBD datetime not null,
 	NgayKT datetime not null,
