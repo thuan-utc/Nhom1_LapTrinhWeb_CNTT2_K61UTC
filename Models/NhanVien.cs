@@ -7,7 +7,7 @@ public partial class NhanVien
 {
     public int MaNv { get; set; }
 
-    public int? MaDaiLy { get; set; }
+    public int MaDaiLy { get; set; }
 
     public string TenNv { get; set; } = null!;
 
@@ -21,7 +21,7 @@ public partial class NhanVien
 
     public int? IsDeleted { get; set; }
 
-    public virtual DaiLy? MaDaiLyNavigation { get; set; }
+    public virtual DaiLy MaDaiLyNavigation { get; set; } = null!;
 
     public virtual ICollection<Tour> Tours { get; } = new List<Tour>();
 }
