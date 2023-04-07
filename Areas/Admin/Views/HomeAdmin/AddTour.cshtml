@@ -1,0 +1,52 @@
+﻿@model Nhom1_LapTrinhWeb_CNTT2_K61.Models.Tour
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "AddTour";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>AddTour</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="AddTour">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MaNv" class="control-label"></label>
+                <select asp-for="MaNv" class="form-control" asp-items="ViewBag.MaNv"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenTour" class="control-label"></label>
+                <input asp-for="TenTour" class="form-control" />
+                <span asp-validation-for="TenTour" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ChiTietLt" class="control-label"></label>
+                <input asp-for="ChiTietLt" class="form-control" />
+                <span asp-validation-for="ChiTietLt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NgayBd" class="control-label"></label>
+                <input asp-for="NgayBd" class="form-control" />
+                <span asp-validation-for="NgayBd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NgayKt" class="control-label"></label>
+                <input asp-for="NgayKt" class="form-control" />
+                <span asp-validation-for="NgayKt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnhTour" class="control-label"></label>
+                <input asp-for="AnhTour" class="form-control" />
+                <span asp-validation-for="AnhTour" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="ListTour">Back to List</a>
+</div>
