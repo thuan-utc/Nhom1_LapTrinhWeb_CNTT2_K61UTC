@@ -22,7 +22,7 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 		{
 			int pageNumber = page == null || page < 1 ? 1 : page.Value;
 			int pageSize = 9;
-			var listTour = tour.Tours.AsNoTracking().OrderBy(x => x.TenTour);
+            var listTour = tour.Tours;
 			PagedList<Tour> lst = new PagedList<Tour>(listTour, pageNumber, pageSize);
 			return View(lst);
 		}
