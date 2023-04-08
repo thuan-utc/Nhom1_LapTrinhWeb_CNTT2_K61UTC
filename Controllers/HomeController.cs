@@ -26,9 +26,14 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 			PagedList<Tour> lst = new PagedList<Tour>(listTour, pageNumber, pageSize);
 			return View(lst);
 		}
+        public IActionResult TourDetail(int matour)
+        {
+            var sanpham = tour.Tours.SingleOrDefault(x => x.MaTour == matour);
+            return View(sanpham);
+        }
 
 
-		public IActionResult Privacy()
+        public IActionResult Privacy()
         {
             return View();
             ///////
