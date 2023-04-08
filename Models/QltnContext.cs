@@ -15,6 +15,8 @@ public partial class QltnContext : DbContext
     {
     }
 
+    public virtual DbSet<AnhTour> AnhTours { get; set; }
+
     public virtual DbSet<Cthd> Cthds { get; set; }
 
     public virtual DbSet<DaiLy> DaiLies { get; set; }
@@ -35,6 +37,22 @@ public partial class QltnContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<AnhTour>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToTable("AnhTour");
+
+            entity.Property(e => e.MaTour).ValueGeneratedOnAdd();
+            entity.Property(e => e.TenFileAnh).HasMaxLength(50);
+            entity.Property(e => e.ViTri).HasMaxLength(100);
+
+            entity.HasOne(d => d.MaTourNavigation).WithMany()
+                .HasForeignKey(d => d.MaTour)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_AnhTour_Tour");
+        });
+
         modelBuilder.Entity<Cthd>(entity =>
         {
             entity
@@ -209,6 +227,7 @@ public partial class QltnContext : DbContext
             entity.Property(e => e.NgayKt)
                 .HasColumnType("datetime")
                 .HasColumnName("NgayKT");
+            entity.Property(e => e.NoiKhoiHanh).HasMaxLength(100);
             entity.Property(e => e.TenTour).HasMaxLength(300);
 
             entity.HasOne(d => d.MaNvNavigation).WithMany(p => p.Tours)

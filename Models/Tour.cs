@@ -27,6 +27,8 @@ public partial class Tour
 
     public int? IsDeleted { get; set; }
 
+    public string? NoiKhoiHanh { get; set; }
+
     public virtual ICollection<HoaDon> HoaDons { get; } = new List<HoaDon>();
 
     public virtual NhanVien? MaNvNavigation { get; set; }

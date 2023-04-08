@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Nhom1_LapTrinhWeb_CNTT2_K61.Areas.Cooperator.Controllers
 {
     [Area("cooperator")]
-    [Route("cooperator")]
+    [Route("homecooperator")]
 
     public class HomeCooperatorController : Controller
     {
@@ -42,7 +42,7 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Areas.Cooperator.Controllers
                 Tourdb.Tours.Add(tour);
                 Tourdb.SaveChanges();
                 return RedirectToAction("historyAddTour");
-            }
+           }
             return View(tour);
         }
 
@@ -78,19 +78,40 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Areas.Cooperator.Controllers
         }
 
         [Route("deleteTour")]
-        public IActionResult DeleteTour(int matour)
+        public IActionResult DeleteTour(int matour, int manv)
         {
+            // Lấy danh sách tour cần xóa dựa trên mã tour
             var listtour = Tourdb.Tours.Where(x => x.MaTour == matour);
-            foreach (var item in listtour)
+
+            // Kiểm tra xem mã nhân viên có tồn tại trong danh sách tour hay không
+            var nhanvien = Tourdb.NhanViens.Where(x => x.MaNv == manv).FirstOrDefault();
+            if (nhanvien != null)
             {
-                if (Tourdb.NhanViens.Where(x => x.MaNv == item.MaNv) != null)
+                foreach (var item in listtour)
                 {
-                    return RedirectToAction("historyAddTour");
+                    if (item.MaNv == manv)
+                    {
+                        return RedirectToAction("historyAddTour");
+                    }
                 }
             }
-            if (listtour != null) Tourdb.RemoveRange(listtour);
-            Tourdb.Remove(Tourdb.Tours.Find(matour));
-            Tourdb.SaveChanges();
+
+            // Xóa các tour trong danh sách và lưu thay đổi
+            if (listtour != null)
+            {
+                Tourdb.RemoveRange(listtour);
+                Tourdb.SaveChanges();
+            }
+
+            // Xóa tour dựa trên mã tour và lưu thay đổi
+            var tour = Tourdb.Tours.Find(matour);
+            if (tour != null && tour.MaNv == manv)
+            {
+                Tourdb.Remove(tour);
+                Tourdb.SaveChanges();
+            }
+
+            // Chuyển hướng đến trang lịch sử thêm tour
             return RedirectToAction("historyAddTour");
         }
 
