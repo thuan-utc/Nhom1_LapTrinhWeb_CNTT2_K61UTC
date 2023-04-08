@@ -18,6 +18,11 @@
                 <select asp-for="MaNv" class ="form-control" asp-items="ViewBag.MaNv"></select>
             </div>
             <div class="form-group">
+                <label asp-for="DiaDiem" class="control-label"></label>
+                <input asp-for="DiaDiem" class="form-control" />
+                <span asp-validation-for="DiaDiem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="TenTour" class="control-label"></label>
                 <input asp-for="TenTour" class="form-control" />
                 <span asp-validation-for="TenTour" class="text-danger"></span>
@@ -43,13 +48,18 @@
                 <span asp-validation-for="AnhTour" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <label asp-for="Gia" class="control-label"></label>
+                <input asp-for="Gia" class="form-control" />
+                <span asp-validation-for="Gia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input  type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a  asp-action="historyaddtour">Back to List</a>
 </div>
 
