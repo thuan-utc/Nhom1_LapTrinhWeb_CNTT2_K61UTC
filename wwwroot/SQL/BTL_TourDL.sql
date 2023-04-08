@@ -31,7 +31,6 @@ create table NhanVien(
 create table Tour(
 	MaTour int identity not null primary key,
 	MaNV int ,
-	DiaDiem nvarchar(30) not null,
 	TenTour nvarchar(30) not null,
 	ChiTietLT nvarchar(500) not null,
 	NgayBD datetime not null,
@@ -122,15 +121,15 @@ insert into NhanVien (MaDaiLy,TenNV,SDT,ChucVu,DiaChi,AnhNV) values (3,N'Nguyễ
 (2,N'Trần Hoàng Trọng','0569342673','HDV',N'Hà Nam','NV10')
 
 --Insert Tour
-insert into Tour (MaNV,TenTour,DiaDiem,ChiTietLT,NgayBD,NgayKT,AnhTour,Gia) values 
-(2,N'Pháp - Bỉ - Hà Lan - Luxembourg - Thụy Sĩ - Đức:Khu đồng quê cối xay gió Zaanse Schans',N'Pháp',N'Pháp - Bỉ - Hà Lan - Luxembourg - Thụy Sĩ - Đức',' 2023/04/07',' 2023/04/10','Tour16',7500000),
-(3,N'Đài Loan: Cao Hùng - Nam Đầu - Đài Trung - Đài Bắc - Trải nghiệm tắm khoáng nóng tại khu tắm khoáng nổi tiếng Beitou',N'Đài Loan',N'Đài Loan, Đài Bắc, Cao Hùng, Đài Trung, Văn Võ Miếu, Beitou, Phố Cổ Thập Phần','2023/04/28','2023/04/30','Tour17',5000000),
-(4,N'Trung Quốc: Trương Gia Giới - Phượng Hoàng Cổ Trấn - Thiên Môn Sơn - Viên Gia Giới - Đại Hiệp Cốc | 6 ngày 5 đêm',N'Trung Quốc',N'Trung Quốc, Trương Gia Giới, Phượng Hoàng Cổ Trấn, Thiên Môn Sơn, Bảo Phong Hồ','2023/04/25','2023/05/01','Tour18',4300000),
-(5,N'Thái Lan: Bangkok - Pattaya (Khách sạn 4*, tặng Show Colosseum và Buffet tại BaiYoke Sky',N'Thái Lan',N'bangkok , pattaya, Wat Benchamabophit, Khao Che Chan, Chợ nổi 4 miền Pattaya, Coral Island, Alcazar Show, Chao Phraya, Icon Siam','2023/04/09','2023/04/15','Tour19',3850000),
-(6,N'Thái Lan: Bangkok - Pattaya (Khách sạn 4*, tặng Show Alcazar và Buffet tại BaiYoke Sky)',N'Thái Lan',N'Thái Lan, Bangkok, Pattaya, Khao Che Chan, Alcazar Show, Muang Boran, Chao Phraya','2023/04/11','2023/04/15','Tour20',8000000),
-(7,N'Huế - Hàn Quốc - Seoul - Công Everland - Đảo Nami - Tặng Vé Nanta Show',N'Hàn Quốc',N'Hàn Quốc - Seoul - Công Everland - Đảo Nami','2023/04/07','2023/04/09','Tour21',5500000),
-(8,N'Anh Quốc - Scotland 9 Ngày 8 đêm - Bay Thẳng Vietnam Airlines',N'Anh Quốc',N'Việt Nam - Anh Quốc - Scotland','2023/04/27','2023/04/30','Tour22',600000),
-(9,N'Singapore: Khám phá khu phố nhỏ Kampong Glam và Haji Lane (1 ngày tự do - bay cùng Bamboo Airways)',N'Singapore',N'Singapore, Sentosa, công viên sư tử, nhà hát Esplanade, Kampong Glam, Haji Lane, Chinatown','2023/04/11','2023/04/17','Tour23',4900000)
+insert into Tour (TenTour,ChiTietLT,NgayBD,NgayKT,AnhTour) values 
+(N'Tour team building gala dinner 2 ngày 1 đêm Phan Thiết Tà Cú | Bàu Trắng – Mũi Né – Lâu Đài Rượu Vang',N'Lịch trình','2023/02/19','2023/02/21','Tour01'),
+(N'Tour Cha Diệp Mẹ Nam Hải 1 ngày 1 đêm: Cánh đồng điện gió – Chùa Dơi',N'Lịch trình','2023/02/18','2023/02/19','Tour2'),
+(N'Tour Núi Tà Cú – Mũi Né – KDL Bầu Trắng – Phan Thiết 2N1Đ | Khám phá vùng đất tiểu sa mạc',N'Lịch trình','2023/02/19','2023/02/21','Tour03'),
+(N'Tour Đà Lạt 3 ngày 3 đêm | Hành trình “săn mây” tham quan các địa điểm cực HOT',N'Lịch trình','2023/02/19','2023/02/21','Tour04'),
+(N'Tour du lịch Tết 2024 TP.HCM – Phú Quốc 3N2Đ | Du xuân khám phá Đảo Ngọc',N'Lịch trình','2023/02/19','2023/02/21','Tour05'),
+(N'Tour du lịch Campuchia – Koh Rong – Samloem 4N3Đ | Tận hưởng kì nghỉ tuyệt vời tại thiên đường biển đảo',N'Lịch trình','2023/02/19','2023/02/21','Tour06'),
+(N'Tour Đồng Tháp 1 Ngày: Khám phá Làng hoa Sa Đéc – Vườn quýt hồng Lai Vung – Kiến An Cung',N'Lịch trình','2023/02/19','2023/02/21','Tour07'),
+(N'Tour du lịch Tết TP.HCM – Đà Nẵng – Bà Nà Hills – Hội An – Huế 4N3Đ | Xuân trên miền đất di sản',N'Lịch trình','2023/02/19','2023/02/21','Tour08')
 
 
 

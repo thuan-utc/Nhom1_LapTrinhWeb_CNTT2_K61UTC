@@ -7,8 +7,7 @@
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.0.9/./Assets/css/boxicons.min.css' rel='stylesheet'>
 	<!-- My CSS -->
-	<link rel="stylesheet" href="./Assets/css/admin.css">
-
+	<link rel="stylesheet" href="../Assets/css/admin.css">
 	<title>AdminHub</title>
 </head>
 <body>
@@ -87,14 +86,14 @@
 				<span class="num">8</span>
 			</a>
 			<a href="#" class="profile">
-				<img src="./Assets/images/people.png">
+				<img src="../Assets/images/people.png"
 			</a>
 		</nav>
 		<!-- NAVBAR -->
 		<!-- MAIN -->
 		<main>
-			@RenderBody();
-			<di@*v class="head-title">
+			
+			<div class="head-title">
 				<div class="left">
 					<h1>Dashboard</h1>
 					<ul class="breadcrumb">
@@ -108,12 +107,12 @@
 					</ul>
 				</div>
 			</div>
-
+			@RenderBody()
 
 			<!-- Dashboard -->
-			<div class="tab-content">
+			<!--<div class="tab-content">-->
 				<!-- UserOder -->
-				<div class="tab-pane active">
+				<!--<div class="tab-pane active">
 					<div class="table-data">
 						<div class="order">
 							<div class="head">
@@ -159,9 +158,9 @@
 						</div>
 
 					</div>
-				</div>
+				</div>-->
 				<!-- Menu -->
-				<div class="tab-pane">
+				<!--<div class="tab-pane">
 					<div class="table-data">
 						<div class="order">
 							<div class="head">
@@ -198,9 +197,9 @@
 							</table>
 						</div>
 					</div>
-				</div>
+				</div>-->
 				<!-- Beverage -->
-				<div class="tab-pane">
+				<!--<div class="tab-pane">
 					<div class="table-data">
 						<div class="order">
 							<div class="head">
@@ -237,13 +236,11 @@
 							</table>
 						</div>
 					</div>
-				</div>*@
+				</div>-->
 		</main>
 		<!-- MAIN -->
 	</section>
 	<!-- CONTENT -->
-
-
-	<script src="./Assets/js/script.js"></script>
+	<script src="../Assets/js/script.js"></script>
 </body>
 </html>
