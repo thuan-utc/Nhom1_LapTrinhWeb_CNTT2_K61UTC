@@ -21,7 +21,7 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 		public IActionResult Index(int? page)
 		{
 			int pageNumber = page == null || page < 1 ? 1 : page.Value;
-			int pageSize = 9;
+			int pageSize = 4;
 			var listTour = tour.Tours.AsNoTracking().OrderBy(x => x.TenTour);
 			PagedList<Tour> lst = new PagedList<Tour>(listTour, pageNumber, pageSize);
 			return View(lst);
