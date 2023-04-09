@@ -40,8 +40,11 @@
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Cooperator\Data\" />
-    <Folder Include="Areas\Cooperator\Models\" />
     <Folder Include="Areas\Cooperator\Views\HomeCooperateHub\" />
+    <Folder Include="wwwroot\Assets\css\css_Slider\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Remove="wwwroot\Assets\css\css_Slider\" />
+  </ItemGroup>
 </Project>

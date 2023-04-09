@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Nhom1_LapTrinhWeb_CNTT2_K61.Models.HoaDon>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "ListBookTour";
+    Layout = "~/Areas/Cooperator/Views/Shared/_LayoutCooperator.cshtml";
+}
+
+<h1>ListBookTour</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MaDaiLy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaTour)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaKh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TongTien)
+            </th>
+          
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaDaiLy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaTour)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaKh)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TongTien)
+            </td>
+           
+
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MaHd">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MaHd">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MaHd">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
