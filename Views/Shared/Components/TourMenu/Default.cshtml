@@ -1,0 +1,20 @@
+﻿@*@model IEnumerable<HoaDon>;
+<div class="col-lg-3">
+    <div class="hero__categories">
+        <div class="hero__categories__all">
+            <i class="fa fa-bars"></i>
+            <span>All departments</span>
+        </div>
+        <ul class="row-cols-md-2">
+            @foreach (var item in Model)
+            {
+                @*var getUrl = "https://localhost:7286/api/productapi/" + item.TranDauId;
+            <li><a style="cursor:pointer" onclick="showProductsByCategory('@getUrl')">@item.TranDauId</a></li>*@
+       @*         <li>
+                    <a asp-controller="homecooperator" asp-action="listbooktour"
+                   asp-route-mahd="@item.MaHd">@item.MaKh</a>
+                </li>
+            }
+        </ul>
+    </div>
+</div>*@

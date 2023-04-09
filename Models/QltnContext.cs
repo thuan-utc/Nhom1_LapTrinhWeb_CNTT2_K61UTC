@@ -19,6 +19,8 @@ public partial class QltnContext : DbContext
 
     public virtual DbSet<Cthd> Cthds { get; set; }
 
+    public virtual DbSet<Cttour> Cttours { get; set; }
+
     public virtual DbSet<DaiLy> DaiLies { get; set; }
 
     public virtual DbSet<HoaDon> HoaDons { get; set; }
@@ -75,6 +77,28 @@ public partial class QltnContext : DbContext
                 .HasForeignKey(d => d.MaHd)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_CTHD_HoaDon");
+        });
+
+        modelBuilder.Entity<Cttour>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToTable("CTTour");
+
+            entity.Property(e => e.AmThuc).HasMaxLength(200);
+            entity.Property(e => e.DoiTuongTh)
+                .HasMaxLength(50)
+                .HasColumnName("DoiTuongTH");
+            entity.Property(e => e.KhachSan).HasMaxLength(40);
+            entity.Property(e => e.MaCttour)
+                .ValueGeneratedOnAdd()
+                .HasColumnName("MaCTTour");
+            entity.Property(e => e.PhuongTien).HasMaxLength(40);
+            entity.Property(e => e.ThoiGian).HasMaxLength(30);
+            entity.Property(e => e.UuDai).HasMaxLength(20);
+            entity.Property(e => e.ĐiemTq)
+                .HasMaxLength(100)
+                .HasColumnName("ĐiemTQ");
         });
 
         modelBuilder.Entity<DaiLy>(entity =>
