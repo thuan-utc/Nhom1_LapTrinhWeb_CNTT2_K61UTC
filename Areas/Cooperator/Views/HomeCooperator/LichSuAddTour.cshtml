@@ -72,46 +72,48 @@
         </button>
     </a>
 </p>
-<table class="table">
+<table class="left">
     <thead>
-        <tr>
+        <tr class="thead-dark">
             <th>
-                @Html.DisplayNameFor(model => model.MaNv)
+                <p>Mã nhân viên</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DiaDiem)
+               <p>Địa điểm</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TenTour)
+                <p>Tên tour</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ChiTietLt)
+                <p>Chi tiết lộ trình</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NgayBd)
+                <p>Nơi khởi hành</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NgayKt)
+                <p>Ngày bắt đầu</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.AnhTour)
+                <p>Ngày kết thúc</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Gia)
+                <p>Ảnh tour</p>
+            </th>
+            <th>
+               <p>Giá</p>
             </th>
           
-            <th>
-                @Html.DisplayNameFor(model => model.NoiKhoiHanh)
-            </th>
+            
             <th></th>
         </tr>
     </thead>
+
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-                <td>
+    @foreach (var item in Model) {
+            <tr class="thead-dark">
+            <td>
                     @Html.DisplayFor(modelItem => item.MaNv)
-                </td>
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DiaDiem)
             </td>
@@ -120,6 +122,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ChiTietLt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoiKhoiHanh)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.NgayBd)
@@ -133,9 +138,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Gia)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NoiKhoiHanh)
-            </td>
+           
         
             <td>
                     <a asp-action="edittour" asp-route-etour="@item.MaTour">Edit</a> |
@@ -146,3 +149,70 @@
 }
     </tbody>
 </table>
+<script>
+    $(document).ready(function() {
+
+   
+   // inspired by http://jsfiddle.net/arunpjohny/564Lxosz/1/
+   $('.table-responsive-stack').find("th").each(function (i) {
+      
+      $('.table-responsive-stack td:nth-child(' + (i + 1) + ')').prepend('<span class="table-responsive-stack-thead">'+ $(this).text() + ':</span> ');
+      $('.table-responsive-stack-thead').hide();
+   });
+
+   
+   
+   
+   
+$( '.table-responsive-stack' ).each(function() {
+  var thCount = $(this).find("th").length; 
+   var rowGrow = 100 / thCount + '%';
+   //console.log(rowGrow);
+   $(this).find("th, td").css('flex-basis', rowGrow);   
+});
+   
+   
+   
+   
+function flexTable(){
+   if ($(window).width() < 768) {
+      
+   $(".table-responsive-stack").each(function (i) {
+      $(this).find(".table-responsive-stack-thead").show();
+      $(this).find('thead').hide();
+   });
+      
+    
+   // window is less than 768px   
+   } else {
+      
+      
+   $(".table-responsive-stack").each(function (i) {
+      $(this).find(".table-responsive-stack-thead").hide();
+      $(this).find('thead').show();
+   });
+      
+      
+
+   }
+// flextable   
+}      
+ 
+flexTable();
+   
+window.onresize = function(event) {
+    flexTable();
+};
+   
+   
+   
+   
+
+  
+// document ready  
+});
+
+
+
+
+</script>

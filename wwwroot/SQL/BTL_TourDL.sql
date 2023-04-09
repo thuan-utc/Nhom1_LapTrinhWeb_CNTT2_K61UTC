@@ -74,7 +74,23 @@ create table TaiKhoan(
 	constraint fk_TaiKhoan_KhachHang foreign key (MaKH) references KhachHang(MaKH), 
 )
 
-
+create table CTTour(
+	MaCTTour int identity not null,
+	MaTour int not null,
+	ThoiGian nvarchar(30) not null,
+	PhuongTien nvarchar(40) not null,
+	ĐiemTQ nvarchar(100),
+	AmThuc nvarchar(200) not null,
+	KhachSan nvarchar(40) not null,
+	DoiTuongTH nvarchar(50) not null,
+	UuDai nvarchar(20),
+)
+insert into CTTour(MaTour,ThoiGian,PhuongTien,AmThuc,KhachSan,DoiTuongTH)values
+(18,N'3 ngày 2 đêm',N'Máy bay, Xe du lịch',N'Buff sáng, Theo thực đơn, Đặc sản địa phương',N'Khách sạn 4 sao',N'Gia đình nhiều thế hệ'),
+(19,N'2 ngày 1 đêm',N'Máy bay, Xe du lịch',N'Buff sáng, Theo thực đơn, Đặc sản địa phương',N'Khách sạn 4 sao',N'Các cặp đôi'),
+(20,N'6 ngày 5 đêm',N'Máy bay, Xe du lịch',N'Buff sáng, Theo thực đơn, Đặc sản địa phương',N'Khách sạn 4 sao',N'Gia đình nhiều thế hệ'),
+(21,N'6 ngày 5 đêm',N'Máy bay, Xe du lịch',N'Buff sáng, Theo thực đơn, Đặc sản địa phương',N'Khách sạn 4 sao',N'Gia đình nhiều thế hệ'),
+(22,N'4 ngày 3 đêm',N'Máy bay, Xe du lịch',N'Buff sáng, Theo thực đơn, Đặc sản địa phương',N'Khách sạn 4 sao',N'Gia đình nhiều thế hệ')
 
 
 
