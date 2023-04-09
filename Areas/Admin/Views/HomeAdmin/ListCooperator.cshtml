@@ -1,15 +1,15 @@
-﻿@model IEnumerable<Nhom1_LapTrinhWeb_CNTT2_K61.Models.Tour>
+﻿@model IEnumerable<Nhom1_LapTrinhWeb_CNTT2_K61.Models.DaiLy>
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutCooperator.cshtml";
 }
 <div class="head-title">
     <div class="left">
-        <h1>List Tour</h1>
+        <h1>List Cooperator</h1>
         <ul class="breadcrumb">
             <li>
-                <a href="#">ListTour</a>
+                <a href="#">Cooperator</a>
             </li>
             <li><i class='bx bx-chevron-right'></i></li>
             <li>
@@ -23,7 +23,7 @@
         <div class="table-data">
             <div class="order">
                 <div class="head">
-                    <h3>Travel list waiting for approval</h3>
+                    <h3>List Cooperator</h3>
                     <i class='bx bx-search'></i>
                     <i class='bx bx-filter'></i>
                 </div>
@@ -31,10 +31,16 @@
                     <thead>
                         <tr>
                             <th>
-                                Tour
+                                Id
                             </th>
                             <th>
-                                Active
+                                Name
+                            </th>
+                            <th>
+                                Phone
+                            </th>
+                            <th>
+                                Address
                             </th>
                             <th></th>
                         </tr>
@@ -44,22 +50,21 @@
                         {
                             <tr>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.TenTour)
+                                    @Html.DisplayFor(modelItem => item.MaDaiLy)
                                 </td>
                                 <td>
-                                    @if (item.Active == 0)
-                                    {
-                                        <span class="status pending">Pending</span>
-                                    }
-                                    else if (item.Active == 1)
-                                    {
-                                        <span class="status completed">Approved</span>
-                                    }
+                                    @Html.DisplayFor(modelItem => item.TenDaiLy)
                                 </td>
                                 <td>
-                                    <button asp-action="EditTour" asp-route-maTour="@item.MaTour">Edit</button> 
-                                    <button asp-action="Details" asp-route-id="@item.MaTour">Details</button> 
-                                    <button asp-action="Delete" asp-route-id="@item.MaTour">Delete</button>
+                                    @Html.DisplayFor(modelItem => item.Sdt)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DiaChi)
+                                </td>
+                                <td>
+                                    <button asp-action="EditTour" asp-route-maTour="@item.MaDaiLy">Edit</button>
+                                    <button asp-action="Details" asp-route-id="@item.MaDaiLy">Details</button>
+                                    <button asp-action="Delete" asp-route-id="@item.MaDaiLy">Delete</button>
                                 </td>
                             </tr>
                         }
