@@ -46,5 +46,13 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Areas.Admin.Controllers
             }
             return View(tour);
         }
+
+        [Route("listCooperator")]
+        [HttpGet]
+        public IActionResult ListCooperator(Tour tour)
+        {
+            var lstCooperator = db.DaiLies.ToList();
+            return View(lstCooperator);
+        }
     }
 }
