@@ -5,211 +5,60 @@
     Layout = "~/Areas/Cooperator/Views/Shared/_LayoutCooperator.cshtml";
 }
 
-<h1>Danh sách Tour</h1>
-<style>
-    .snip1582 {
-        background-color: #c47135;
-        border: none;
-        color: #ffffff;
-        cursor: pointer;
-        display: inline-block;
-        font-family: 'BenchNine', Arial, sans-serif;
-        font-size: 1em;
-        font-size: 13px;
-        line-height: 1em;
-        margin: 15px 40px;
-        outline: none;
-        padding: 12px 40px 10px;
-        position: relative;
-        text-transform: uppercase;
-        font-weight: 700;
-    }
-
-        .snip1582:before,
-        .snip1582:after {
-            border-color: transparent;
-            -webkit-transition: all 0.25s;
-            transition: all 0.25s;
-            border-style: solid;
-            border-width: 0;
-            content: "";
-            height: 24px;
-            position: absolute;
-            width: 24px;
-        }
-
-        .snip1582:before {
-            border-color: #c47135;
-            border-top-width: 2px;
-            left: 0px;
-            top: -5px;
-        }
-
-        .snip1582:after {
-            border-bottom-width: 2px;
-            border-color: #c47135;
-            bottom: -5px;
-            right: 0px;
-        }
-
-        .snip1582:hover,
-        .snip1582.hover {
-            background-color: #c47135;
-        }
-
-            .snip1582:hover:before,
-            .snip1582.hover:before,
-            .snip1582:hover:after,
-            .snip1582.hover:after {
-                height: 100%;
-                width: 100%;
-            }
-</style>
-<p>
-    <a asp-controller="HomeCooperator" asp-action="AddTour" class="create">
-        <button type="button" class="snip1582" asp-controller="HomeCooperator" asp-action="AddTour">
-            <i></i>Create New
-        </button>
-    </a>
-</p>
-<table >
-    <thead>
-        <tr >
-            <th>
-                <p>Mã nhân viên</p>
-            </th>
-            <th>
-               <p>Địa điểm</p>
-            </th>
-            <th>
-                <p>Tên tour</p>
-            </th>
-
-            <th>
-                <p>Nơi khởi hành</p>
-            </th>
-            <th>
-                <p>Ngày bắt đầu</p>
-            </th>
-            <th>
-                <p>Ngày kết thúc</p>
-            </th>
-            <th>
-                <p>Ảnh tour</p>
-            </th>
-            <th>
-               <p>Giá</p>
-            </th>
-          
-            
-            <th></th>
-        </tr>
-    </thead>
-  
-    <tbody>
-    @foreach (var item in Model) {
-
-            <tr>
-            <td>
-                    @Html.DisplayFor(modelItem => item.MaNv)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DiaDiem)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TenTour)
-            </td>
-
-            <td>
-                @Html.DisplayFor(modelItem => item.NoiKhoiHanh)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NgayBd)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NgayKt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AnhTour)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gia)
-            </td>
-           
-        
-            <td>
-                    <a  asp-action="edittour" asp-route-etour="@item.MaTour">Edit</a> 
-                    <a  asp-action="listbooktour" asp-route-khtour="@item.MaTour">Details</a> 
-                    <a  asp-action="deleteTour" asp-route-matour="@item.MaTour">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
-<script>
-    $(document).ready(function() {
-
-   
-   // inspired by http://jsfiddle.net/arunpjohny/564Lxosz/1/
-   $('.table-responsive-stack').find("th").each(function (i) {
-      
-      $('.table-responsive-stack td:nth-child(' + (i + 1) + ')').prepend('<span class="table-responsive-stack-thead">'+ $(this).text() + ':</span> ');
-      $('.table-responsive-stack-thead').hide();
-   });
-
-   
-   
-   
-   
-$( '.table-responsive-stack' ).each(function() {
-  var thCount = $(this).find("th").length; 
-   var rowGrow = 100 / thCount + '%';
-   //console.log(rowGrow);
-   $(this).find("th, td").css('flex-basis', rowGrow);   
-});
-   
-   
-   
-   
-function flexTable(){
-   if ($(window).width() < 768) {
-      
-   $(".table-responsive-stack").each(function (i) {
-      $(this).find(".table-responsive-stack-thead").show();
-      $(this).find('thead').hide();
-   });
-      
-    
-   // window is less than 768px   
-   } else {
-      
-      
-   $(".table-responsive-stack").each(function (i) {
-      $(this).find(".table-responsive-stack-thead").hide();
-      $(this).find('thead').show();
-   });
-      
-      
-
-   }
-// flextable   
-}      
- 
-flexTable();
-   
-window.onresize = function(event) {
-    flexTable();
-};
-   
-   
-   
-   
-
-  
-// document ready  
-});
-
-
-
-
-</script>
+<div class="tab-content">
+    <div class="tab-pane active">
+        <div class="table-data">
+            <div class="order">
+                <div class="head">
+                    <h3>Travel list waiting for approval</h3>
+                    <i class='bx bx-search'></i>
+                    <i class='bx bx-filter'></i>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                Tour
+                            </th>
+                            <th>
+                                Price
+                            </th>
+                            <th>
+                                Active
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TenTour)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Gia)
+                                </td>
+                                <td>
+                                    @if (item.Active == 0)
+                                    {
+                                        <span class="status pending">Pending</span>
+                                    }
+                                    else if (item.Active == 1)
+                                    {
+                                        <span class="status completed">Approved</span>
+                                    }
+                                </td>
+                                <td>
+                                    <button asp-action="EditTour" asp-route-maTour="@item.MaTour">Edit</button>
+                                    <button asp-action="Details" asp-route-id="@item.MaTour">Details</button>
+                                    <button asp-action="Delete" asp-route-id="@item.MaTour">Delete</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -4,9 +4,6 @@
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
-<p>
-    <a asp-action="AddTour">Create New</a>
-</p>
 <div class="tab-content">
     <div class="tab-pane active">
         <div class="table-data">
@@ -26,7 +23,6 @@
                                 Active
                             </th>
                             <th></th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -45,14 +41,6 @@
                                     {
                                         <span class="status completed">Approved</span>
                                     }
-                                </td>
-                                <td>
-                                    <div class="item">
-                                        <div class="checkbox-rect">
-                                            <input type="checkbox" id="checkbox-rect1" name="check">
-                                            <label for="checkbox-rect1"></label>
-                                        </div>
-                                    </div>
                                 </td>
                                 <td>
                                     <button asp-action="EditTour" asp-route-maTour="@item.MaTour">Edit</button> 
