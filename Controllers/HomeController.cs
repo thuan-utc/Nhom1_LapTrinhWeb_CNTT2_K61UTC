@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Azure;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Nhom1_LapTrinhWeb_CNTT2_K61.Models;
+using System.Collections.Generic;
 using System.Diagnostics;
 using X.PagedList;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
@@ -33,6 +35,17 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 			PagedList<Tour> lst = new PagedList<Tour>(listSanPham, pageNumber, pageSize);
 			return View(lst);
 		}
+		public IActionResult TourThaiLan(int? page)
+		{
+			int pageNumber = page == null || page < 1 ? 1 : page.Value; 
+			int pageSize = 9;
+			var listTour = tour.Tours.AsNoTracking().Where(x => x.DiaDiem=="Thái Lan ").ToList();
+			PagedList<Tour> lst = new PagedList<Tour>(listTour, pageNumber, pageSize);
+			ViewBag.DiaDiem="Thái Lan";
+			return View(lst);
+		}
+
+		
 		public IActionResult TourDetail(int matour)
 		{
 			var sanpham = tour.Tours.SingleOrDefault(x => x.MaTour == matour);

@@ -2,7 +2,7 @@
 <div class="col-lg-4 col-sm-6 mb-5">
 	<div class="image-tour position-relative">
 		<img src="@Url.Content("~/Media/ImagesTour/"+Model.AnhTour+".jpg")" alt="" class="img-fluid" />
-		<p><span class="fa fa-tags"></span> <span>@Model.Gia</span></p>
+		<p><span class="fa fa-tags"></span> <span>@Model.Gia.Value.ToString("#,##0") VND</span></p>
 	</div>
 	<div class="package-info" style="height:300px">
 		<h6 class="mt-1"><span class="fa fa-map-marker mr-2"></span>@Model.DiaDiem</h6>

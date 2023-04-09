@@ -386,7 +386,7 @@ li > a:only-child:after {
 }
 
 .banner-top {
-  background: url(../images/banner1.jpg) no-repeat center;
+  background: url(../images/banner_he.png) no-repeat center;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
