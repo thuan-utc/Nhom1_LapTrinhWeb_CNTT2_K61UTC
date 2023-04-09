@@ -317,7 +317,6 @@ body {
 #content main .head-title {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
 	grid-gap: 16px;
 	flex-wrap: wrap;
 }
@@ -453,24 +452,30 @@ body {
 #content main .table-data .order table th {
 	padding-bottom: 12px;
 	font-size: 13px;
-	text-align: left;
+	text-align: center;
 	border-bottom: 1px solid var(--grey);
 }
 #content main .table-data .order table td {
 	padding: 16px 0;
 }
-#content main .table-data .order table tr td:first-child {
-	display: flex;
-	align-items: center;
-	grid-gap: 12px;
-	padding-left: 6px;
-}
-#content main .table-data .order table td img {
-	width: 36px;
-	height: 36px;
-	border-radius: 50%;
-	object-fit: cover;
-}
+	#content main .table-data .order table tr th:first-child{
+		width: 4%;
+	}
+	#content main .table-data .order table tr th:last-child {
+		width: 12%;
+	}
+	#content main .table-data .order table tr td:first-child {
+		display: flex;
+		align-items: center;
+		grid-gap: 12px;
+		padding-left: 12px;
+	}
+	#content main .table-data .order table td img {
+		width: 36px;
+		height: 36px;
+		border-radius: 50%;
+		object-fit: cover;
+	}
 #content main .table-data .order table tbody tr:hover {
 	background: var(--grey);
 }
