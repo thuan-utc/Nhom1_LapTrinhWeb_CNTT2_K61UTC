@@ -8,6 +8,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	ViewData["Title"] = "Booking";
 	Layout = null;
 }
+@model List<Booking>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -125,17 +127,52 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-lg-5 contact-right pl-lg-5">
 
 					<div class="image-tour position-relative">
-							<img src="@Url.Content("~/Media/ImagesTour/"+Model.AnhTour +".jpg")" alt="" class="img-fluid" />
 						<p><span class="fa fa-tags"></span> <span>20$ - 15% off</span></p>
-					</div>
+						<div class="col-lg-5 col-md-5" style="float: right;">
+								<div class="product__details__text">
+									<div class="product__details__rating">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star-half-o"></i>
+										<span>(18 reviews)</span>
+									</div>
+									<a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+									<ul>
+										@foreach (var item in Model)
+										{
+											<li><b>Tên tour: </b><span>@item.TenTour</span></li>
+											<li><b>Thời gian: </b><span>@item.ThoiGian</span></li>
+											<li><b>Điểm tham quan: </b><span>@item.DiemTq</span></li>
+											<li><b>Ẩm thực: </b><span>@item.AmThuc</span></li>
+											<li><b>Phương tiện: </b><span>@item.PhuongTien</span></li>
+											<li><b>Khách sạn: </b><span>@item.KhachSan</span></li>
+											<li><b>Đối tượng tham gia: </b><span>@item.DoiTuongTh</span></li>
+											<li><b>Ưu đãi: </b><span>@item.UuDai</span></li>
+										}
+									
 
-					<h4>ChiTietTour</h4>
-					<p class="mt-3">@await Html.PartialAsync("TourDetail")</p>
+										<li>
+
+											<div class="share">
+												<a href="#"><i class="fa fa-facebook"></i></a>
+												<a href="#"><i class="fa fa-twitter"></i></a>
+												<a href="#"><i class="fa fa-instagram"></i></a>
+												<a href="#"><i class="fa fa-pinterest"></i></a>
+											</div>
+										</li>
+										</ul>
+								    </div>
+								</div>
+							</div>
+					 </div>
+				
 
 				</div>
 			</div>
 		</div>
-	</div>
+	
 </section>
 <!-- //Booking -->
 
