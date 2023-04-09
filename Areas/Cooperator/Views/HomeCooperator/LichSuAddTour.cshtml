@@ -72,77 +72,91 @@
         </button>
     </a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.MaNv)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DiaDiem)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TenTour)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ChiTietLt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NgayBd)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NgayKt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AnhTour)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Gia)
-            </th>
-          
-            <th>
-                @Html.DisplayNameFor(model => model.NoiKhoiHanh)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MaNv)
-                </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DiaDiem)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TenTour)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ChiTietLt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NgayBd)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NgayKt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AnhTour)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gia)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NoiKhoiHanh)
-            </td>
-        
-            <td>
-                    <a asp-action="edittour" asp-route-etour="@item.MaTour">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.MaTour">Details</a> |
-                    <a asp-action="deleteTour" asp-route-matour="@item.MaTour">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="tab-content">
+    <div class="tab-pane active">
+        <div class="table-data">
+            <div class="order">
+                <div class="head">
+                    <h3>Travel list waiting for approval</h3>
+                    <i class='bx bx-search'></i>
+                    <i class='bx bx-filter'></i>
+                </div>
+                <table>
+                <thead>
+                    <tr>
+                        <th>
+                            Mã nhân viên
+                        </th>
+                        <th>
+                            Địa điểm
+                        </th>
+                        <th>
+                            Tên tour
+                        </th>
+                        <th>
+                            Lịch trình
+                        </th>
+                        <th>
+                            Ngày bắt đầu
+                        </th>
+                        <th>
+                            Ngày kết thúc
+                        </th>
+                        <th>
+                            Link ảnh
+                        </th>
+                        <th>
+                            Giá
+                        </th>
+
+                        <th>
+                            Nơi khởi hành
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MaNv)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DiaDiem)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TenTour)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ChiTietLt)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NgayBd)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NgayKt)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AnhTour)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Gia)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NoiKhoiHanh)
+                            </td>
+
+                            <td>
+                                <a asp-action="edittour" asp-route-etour="@item.MaTour">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.MaTour">Details</a> |
+                                <a asp-action="deleteTour" asp-route-matour="@item.MaTour">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

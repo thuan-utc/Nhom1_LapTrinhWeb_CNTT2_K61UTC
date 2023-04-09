@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Nhom1_LapTrinhWeb_CNTT2_K61.Models;
 using Microsoft.EntityFrameworkCore;
+using X.PagedList;
 
 namespace Nhom1_LapTrinhWeb_CNTT2_K61.Areas.Cooperator.Controllers
 {
@@ -23,6 +24,24 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Areas.Cooperator.Controllers
             var lstlichsu = Tourdb.Tours.ToList();
             return View(lstlichsu);
         }
+
+
+   
+
+        [Route("listBookTour")]
+        public IActionResult ListBookTour(int tour)
+        {
+            var lst = Tourdb.HoaDons.Where
+                 (x => x.MaHd == tour);
+            if (lst.Count() == 0)
+            {
+                lst = Tourdb.HoaDons.AsNoTracking();
+            }
+            ViewBag.mahd = tour;
+            return View(lst);
+        }
+
+
         [Route("addtour")]
         [HttpGet]
         public IActionResult AddTour()
