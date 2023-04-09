@@ -35,9 +35,14 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
             ViewBag.anhtour = anhtour.ToList();
             return View(sanpham);
         }
+		public IActionResult Booking(int matour)
+		{
+			var sanpham1 = tour.Tours.SingleOrDefault(x => x.MaTour == matour);
+			return View(sanpham1);
+		}
 
 
-        public IActionResult Privacy()
+		public IActionResult Privacy()
         {
             return View();
             ///////
