@@ -19,7 +19,8 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Areas.Cooperator.Controllers
                            join t in db.HoaDons on c.MaKh equals t.MaKh
                            join q in db.Cthds on t.MaHd equals q.MaHd
                            where t.MaKh == makh
-                           select c) ;
+                           select c
+                             ) ;
             return khachs;
         }
 
