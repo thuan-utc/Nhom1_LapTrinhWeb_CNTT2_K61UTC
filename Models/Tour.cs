@@ -7,7 +7,9 @@ public partial class Tour
 {
     public int MaTour { get; set; }
 
-    public int MaNv { get; set; }
+    public int? MaNv { get; set; }
+
+    public string DiaDiem { get; set; } = null!;
 
     public string TenTour { get; set; } = null!;
 
@@ -19,11 +21,15 @@ public partial class Tour
 
     public string AnhTour { get; set; } = null!;
 
+    public decimal? Gia { get; set; }
+
     public int? Active { get; set; }
 
     public int? IsDeleted { get; set; }
 
+    public string? NoiKhoiHanh { get; set; }
+
     public virtual ICollection<HoaDon> HoaDons { get; } = new List<HoaDon>();
 
-    public virtual NhanVien MaNvNavigation { get; set; } = null!;
+    public virtual NhanVien? MaNvNavigation { get; set; }
 }

@@ -2,7 +2,7 @@
 use [TourManagement]
 create table DaiLy(
 	MaDaiLy int identity not null primary key,
-	TenDaiLy nvarchar(30) not null,
+	TenDaiLy nvarchar(300) not null,
 	SDT nvarchar(20) not null,
 	DiaChi nvarchar(100) not null,
 	isDeleted int default 0,
@@ -36,6 +36,7 @@ create table Tour(
 	NgayBD datetime not null,
 	NgayKT datetime not null,
 	AnhTour nvarchar(300) not null,
+	Gia money,
 	Active int default 0,
 	isDeleted int default 0,
 	constraint fk_Tour_NhanVien foreign key (MaNV) references NhanVien(MaNV),
@@ -108,16 +109,16 @@ insert into KhachHang(TenKH,SoCMND,SDT,DiaChi,AnhKH) values
 (N'Phạm Thuỳ Huê','036104889234','0382868686',N'TP. Hồ Chí Minh','NV09'),
 (N'Hứa Đức Cảnh','036202006785','0971833026',N'Sài Gòn','NV10')
 --Insert Nhân viên
-insert into NhanVien (TenNV,SDT,ChucVu,DiaChi,AnhNV) values (N'Nguyễn Thu Hà','0838765789','HDV',N'Hà Nội','NV01'),
-(N'Trần Văn Vinh','0011165324','HDV',N'Nam Định','NV02'),
-(N'Nguyễn Ánh Ngọc','0353231048','HDV',N'Bắc Giang','NV03'),
-(N'Trịnh Kim Anh','0986785264','HDV',N'Phú Thọ','NV04'),
-(N'Kiều Minh Tuấn','0567893563','HDV',N'Thái Bình','NV05'),
-(N'Lý Thu Nhai','0785637921','HDV',N'Quảng Ninh','NV06'),
-(N'Nguyễn Văn Vinh','0368249655','HDV',N'Nam Định','NV07'),
-(N'Phạm Hữu Phúc','0358639672','HDV',N'Vĩnh Phúc','NV08'),
-(N'Trần Hoàng Lam','0569342673','HDV',N'Hà Nội','NV09'),
-(N'Trần Hoàng Trọng','0569342673','HDV',N'Hà Nam','NV10')
+insert into NhanVien (MaDaiLy,TenNV,SDT,ChucVu,DiaChi,AnhNV) values (3,N'Nguyễn Thu Hà','0838765789','HDV',N'Hà Nội','NV01'),
+(4,N'Trần Văn Vinh','0011165324','HDV',N'Nam Định','NV02'),
+(5,N'Nguyễn Ánh Ngọc','0353231048','HDV',N'Bắc Giang','NV03'),
+(6,N'Trịnh Kim Anh','0986785264','HDV',N'Phú Thọ','NV04'),
+(7,N'Kiều Minh Tuấn','0567893563','HDV',N'Thái Bình','NV05'),
+(8,N'Lý Thu Nhai','0785637921','HDV',N'Quảng Ninh','NV06'),
+(9,N'Nguyễn Văn Vinh','0368249655','HDV',N'Nam Định','NV07'),
+(10,N'Phạm Hữu Phúc','0358639672','HDV',N'Vĩnh Phúc','NV08'),
+(11,N'Trần Hoàng Lam','0569342673','HDV',N'Hà Nội','NV09'),
+(2,N'Trần Hoàng Trọng','0569342673','HDV',N'Hà Nam','NV10')
 
 --Insert Tour
 insert into Tour (TenTour,ChiTietLT,NgayBD,NgayKT,AnhTour) values 
@@ -136,7 +137,7 @@ insert into Tour (TenTour,ChiTietLT,NgayBD,NgayKT,AnhTour) values
 insert into HoaDon (TongTien) values (10000000)
 
 -- insert CTHD
-insert into CTHD (NgayTao,Gia,SoVe) values(2023-04-01,1000000,10)
+insert into CTHD (MaHD,NgayTao,Gia,SoVe) values(1,'2023/04/01',1000000,10)
 
 
 --insert TaiKhoan 

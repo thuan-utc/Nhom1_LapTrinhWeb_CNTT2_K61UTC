@@ -6,6 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.4" />
@@ -37,10 +39,9 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Cooperator\Controllers\" />
     <Folder Include="Areas\Cooperator\Data\" />
     <Folder Include="Areas\Cooperator\Models\" />
-    <Folder Include="Areas\Cooperator\Views\" />
+    <Folder Include="Areas\Cooperator\Views\HomeCooperateHub\" />
   </ItemGroup>
 
 </Project>

@@ -4,16 +4,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Nhom1_LapTrinhWeb_CNTT2_K61.Models;
 
-public partial class TourManagementContext : DbContext
+public partial class QltnContext : DbContext
 {
-    public TourManagementContext()
+    public QltnContext()
     {
     }
 
-    public TourManagementContext(DbContextOptions<TourManagementContext> options)
+    public QltnContext(DbContextOptions<QltnContext> options)
         : base(options)
     {
     }
+
+    public virtual DbSet<AnhTour> AnhTours { get; set; }
 
     public virtual DbSet<Cthd> Cthds { get; set; }
 
@@ -28,14 +30,29 @@ public partial class TourManagementContext : DbContext
     public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
 
     public virtual DbSet<Tour> Tours { get; set; }
-    public virtual DbSet<Tour> AnhTours { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=TourManagement.mssql.somee.com;Initial Catalog=TourManagement;User ID=thuanngungu_SQLLogin_1;Password=tlsxvr1d4e;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
+        => optionsBuilder.UseSqlServer("Data Source=TourManagement.mssql.somee.com;Initial Catalog=TourManagement;User ID=thuanngungu_SQLLogin_1;Password=tlsxvr1d4e;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<AnhTour>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToTable("AnhTour");
+
+            entity.Property(e => e.MaTour).ValueGeneratedOnAdd();
+            entity.Property(e => e.TenFileAnh).HasMaxLength(50);
+            entity.Property(e => e.ViTri).HasMaxLength(100);
+
+            entity.HasOne(d => d.MaTourNavigation).WithMany()
+                .HasForeignKey(d => d.MaTour)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_AnhTour_Tour");
+        });
+
         modelBuilder.Entity<Cthd>(entity =>
         {
             entity
@@ -62,7 +79,7 @@ public partial class TourManagementContext : DbContext
 
         modelBuilder.Entity<DaiLy>(entity =>
         {
-            entity.HasKey(e => e.MaDaiLy).HasName("PK__DaiLy__069B00B3F1208175");
+            entity.HasKey(e => e.MaDaiLy).HasName("PK__DaiLy__069B00B34E96133E");
 
             entity.ToTable("DaiLy");
 
@@ -73,12 +90,12 @@ public partial class TourManagementContext : DbContext
             entity.Property(e => e.Sdt)
                 .HasMaxLength(20)
                 .HasColumnName("SDT");
-            entity.Property(e => e.TenDaiLy).HasMaxLength(30);
+            entity.Property(e => e.TenDaiLy).HasMaxLength(300);
         });
 
         modelBuilder.Entity<HoaDon>(entity =>
         {
-            entity.HasKey(e => e.MaHd).HasName("PK__HoaDon__2725A6E041473A4F");
+            entity.HasKey(e => e.MaHd).HasName("PK__HoaDon__2725A6E075B6BA0E");
 
             entity.ToTable("HoaDon");
 
@@ -91,23 +108,20 @@ public partial class TourManagementContext : DbContext
 
             entity.HasOne(d => d.MaDaiLyNavigation).WithMany(p => p.HoaDons)
                 .HasForeignKey(d => d.MaDaiLy)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_HoaDon_DaiLy");
 
             entity.HasOne(d => d.MaKhNavigation).WithMany(p => p.HoaDons)
                 .HasForeignKey(d => d.MaKh)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_HoaDon_KhachHang");
 
             entity.HasOne(d => d.MaTourNavigation).WithMany(p => p.HoaDons)
                 .HasForeignKey(d => d.MaTour)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_HoaDon_Tour");
         });
 
         modelBuilder.Entity<KhachHang>(entity =>
         {
-            entity.HasKey(e => e.MaKh).HasName("PK__KhachHan__2725CF1EF4D36ACF");
+            entity.HasKey(e => e.MaKh).HasName("PK__KhachHan__2725CF1E6A873837");
 
             entity.ToTable("KhachHang");
 
@@ -132,7 +146,7 @@ public partial class TourManagementContext : DbContext
 
         modelBuilder.Entity<NhanVien>(entity =>
         {
-            entity.HasKey(e => e.MaNv).HasName("PK__NhanVien__2725D70A4DB126CB");
+            entity.HasKey(e => e.MaNv).HasName("PK__NhanVien__2725D70A9B585DF7");
 
             entity.ToTable("NhanVien");
 
@@ -154,13 +168,12 @@ public partial class TourManagementContext : DbContext
 
             entity.HasOne(d => d.MaDaiLyNavigation).WithMany(p => p.NhanViens)
                 .HasForeignKey(d => d.MaDaiLy)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_NhanVien_DaiLy");
         });
 
         modelBuilder.Entity<TaiKhoan>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__TaiKhoan__3213E83FC0941D66");
+            entity.HasKey(e => e.Id).HasName("PK__TaiKhoan__3213E83FFCAA85ED");
 
             entity.ToTable("TaiKhoan");
 
@@ -193,7 +206,7 @@ public partial class TourManagementContext : DbContext
 
         modelBuilder.Entity<Tour>(entity =>
         {
-            entity.HasKey(e => e.MaTour).HasName("PK__Tour__4E5557DE22B0F4BA");
+            entity.HasKey(e => e.MaTour).HasName("PK__Tour__4E5557DE580C8751");
 
             entity.ToTable("Tour");
 
@@ -202,6 +215,8 @@ public partial class TourManagementContext : DbContext
             entity.Property(e => e.ChiTietLt)
                 .HasMaxLength(500)
                 .HasColumnName("ChiTietLT");
+            entity.Property(e => e.DiaDiem).HasMaxLength(30);
+            entity.Property(e => e.Gia).HasColumnType("money");
             entity.Property(e => e.IsDeleted)
                 .HasDefaultValueSql("((0))")
                 .HasColumnName("isDeleted");
@@ -212,11 +227,11 @@ public partial class TourManagementContext : DbContext
             entity.Property(e => e.NgayKt)
                 .HasColumnType("datetime")
                 .HasColumnName("NgayKT");
-            entity.Property(e => e.TenTour).HasMaxLength(30);
+            entity.Property(e => e.NoiKhoiHanh).HasMaxLength(100);
+            entity.Property(e => e.TenTour).HasMaxLength(300);
 
             entity.HasOne(d => d.MaNvNavigation).WithMany(p => p.Tours)
                 .HasForeignKey(d => d.MaNv)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_Tour_NhanVien");
         });
 
