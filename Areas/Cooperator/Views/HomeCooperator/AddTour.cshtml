@@ -53,13 +53,18 @@
                 <span asp-validation-for="Gia" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input  type="submit" value="Create" class="btn btn-primary" />
+                <label asp-for="NoiKhoiHanh" class="control-label"></label>
+                <input asp-for="NoiKhoiHanh" class="form-control" />
+                <span asp-validation-for="NoiKhoiHanh" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a  asp-action="historyaddtour">Back to List</a>
+    <a asp-action="historyaddtor">Back to List</a>
 </div>
 
