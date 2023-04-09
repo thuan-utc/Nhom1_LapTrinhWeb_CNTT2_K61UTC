@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Azure;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Nhom1_LapTrinhWeb_CNTT2_K61.Models;
 using System.Diagnostics;
@@ -27,7 +28,30 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 			return View(lst);
 		}
 
-
+        public IActionResult AboutUs()
+        {
+            return View();
+        }
+		public IActionResult Cooperate()
+		{
+			return View();
+		}
+		public IActionResult Services()
+		{
+			return View();
+		}
+		public IActionResult Contact()
+		{
+			return View();
+		}
+		public IActionResult Packages(int? page )
+		{
+			int pageNumber = page == null || page < 1 ? 1 : page.Value;
+			int pageSize = 8;
+			var listTour = tour.Tours.AsNoTracking().OrderBy(x => x.TenTour);
+			PagedList<Tour> lst = new PagedList<Tour>(listTour, pageNumber, pageSize);
+			return View(lst);
+		}
 		public IActionResult Privacy()
         {
             return View();
