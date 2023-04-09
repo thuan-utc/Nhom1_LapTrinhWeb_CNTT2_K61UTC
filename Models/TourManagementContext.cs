@@ -9,7 +9,6 @@ public partial class TourManagementContext : DbContext
     public TourManagementContext()
     {
     }
-
     public TourManagementContext(DbContextOptions<TourManagementContext> options)
         : base(options)
     {

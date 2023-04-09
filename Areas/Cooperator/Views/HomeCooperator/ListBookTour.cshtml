@@ -11,28 +11,37 @@
     <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
-    <thead>
-        <tr>
+    <thead >
+        <tr class="table-danger">
             <th>
-                @Html.DisplayNameFor(model => model.MaDaiLy)
+                <p>Mã đại lý</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MaTour)
+                <p>Mã Tour</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MaKh)
+                <p>Mã khách hàng</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TongTien)
+                <p>Tổng tiền</p>
             </th>
           
 
             <th></th>
         </tr>
     </thead>
+         @{
+        int i = 1;
+    }
     <tbody>
 @foreach (var item in Model) {
-        <tr>
+     i = i + 1;
+            string cls = "table-success";
+            if (i % 2 == 0)
+            {
+                cls = "table-primary";
+            }
+        <tr class = "@cls">
                 <td>
                     @Html.DisplayFor(modelItem => item.MaDaiLy)
                 </td>

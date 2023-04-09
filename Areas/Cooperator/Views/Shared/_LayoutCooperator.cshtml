@@ -9,9 +9,14 @@
 	<link href='https://unpkg.com/boxicons@2.0.9/./Assets/css/boxicons.min.css' rel='stylesheet'>
 	<!-- My CSS -->
 	<link rel="stylesheet" href="../Assets/css/admin.css">
+	  <link rel="stylesheet" href="../../LayoutAdmin/assets/vendors/css/vendor.bundle.base.css">
 
+	 <!-- plugins:css -->
 	<title>AdminHub</title>
 	<style>
+		span {
+			text-decoration: none;
+			}
 		.tab-item ul {
 			display: none;
 		}
@@ -34,10 +39,10 @@
 			<li class="tab-item active">
 				<a asp-controller="homecooperator" asp-action="historyaddtour">
 					<i class='bx bxs-dashboard'></i>
-					<span class="text">Dashboard</span>
+					<span class="text">ListTour</span>
 				</a>
 			</li>
-			<li class="tab-item">
+			<li class="tab-item active">
 				<a asp-controller="homecooperator" asp-action="listbooktour">
 					<i class='bx bxs-shopping-bag-alt'></i>
 					<span class="text">Menu</span>
@@ -45,7 +50,7 @@
 				
 				</a>
 			</li>
-			<li class="tab-item">
+			<li class="tab-item active">
 				<a href="#">
 					<i class='bx bxs-doughnut-chart'></i>
 					<span class="text">Beverage</span>

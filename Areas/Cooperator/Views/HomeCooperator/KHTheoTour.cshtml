@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewData["Title"] = "KHTheoTour";
+    Layout = "~/Areas/Cooperator/Views/Shared/_LayoutCooperator.cshtml";
+}
+
+<h1>KHTheoTour</h1>
+@model IEnumerable<Nhom1_LapTrinhWeb_CNTT2_K61.Models.Product>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<h1>Danh sách khách hàng</h1>
+<table >
+    <thead>
+        <tr >
+            <th>
+                <p>Tên khách hàng</p>
+            </th>
+            <th>
+               <p>Số điện thoại</p>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+ <tbody>
+    @foreach (var item in Model) {
+
+            <tr>
+            <td>
+                    @Html.DisplayFor(modelItem => item.TenKh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sdt)
+            </td>
+           
+           
+        
+        </tr>
+}
+    </tbody>
+</table>

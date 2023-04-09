@@ -5,7 +5,7 @@
     Layout = "~/Areas/Cooperator/Views/Shared/_LayoutCooperator.cshtml";
 }
 
-<h1>History Add Tour</h1>
+<h1>Danh sách Tour</h1>
 <style>
     .snip1582 {
         background-color: #c47135;
@@ -72,9 +72,9 @@
         </button>
     </a>
 </p>
-<table class="left">
+<table >
     <thead>
-        <tr class="thead-dark">
+        <tr >
             <th>
                 <p>Mã nhân viên</p>
             </th>
@@ -84,9 +84,7 @@
             <th>
                 <p>Tên tour</p>
             </th>
-            <th>
-                <p>Chi tiết lộ trình</p>
-            </th>
+
             <th>
                 <p>Nơi khởi hành</p>
             </th>
@@ -107,10 +105,11 @@
             <th></th>
         </tr>
     </thead>
-
+  
     <tbody>
     @foreach (var item in Model) {
-            <tr class="thead-dark">
+
+            <tr>
             <td>
                     @Html.DisplayFor(modelItem => item.MaNv)
             </td>
@@ -120,9 +119,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.TenTour)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ChiTietLt)
-            </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.NoiKhoiHanh)
             </td>
@@ -141,9 +138,9 @@
            
         
             <td>
-                    <a asp-action="edittour" asp-route-etour="@item.MaTour">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.MaTour">Details</a> |
-                    <a asp-action="deleteTour" asp-route-matour="@item.MaTour">Delete</a>
+                    <a  asp-action="edittour" asp-route-etour="@item.MaTour">Edit</a> 
+                    <a  asp-action="listbooktour" asp-route-khtour="@item.MaTour">Details</a> 
+                    <a  asp-action="deleteTour" asp-route-matour="@item.MaTour">Delete</a>
             </td>
         </tr>
 }
