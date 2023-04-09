@@ -74,10 +74,11 @@ ul {
 /*-- header --*/
 
 header {
-  position: absolute;
-  z-index: 9;
-  width: 100%;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    position: absolute;
+    z-index: 9;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+   
 }
 
 .toggle,
@@ -118,44 +119,48 @@ nav:after {
 /* Removing padding, margin and "list-style" from the "ul",
  * and adding "position:reltive" */
 nav ul {
-  float: right;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  position: relative;
+    float: right;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: relative;
+    
 }
 
+
 /* Positioning the navigation items inline */
-nav ul li {
-  margin: 0px;
-  display: inline-block;
-  float: left;
-}
+    nav ul li {
+        margin: 0px;
+        display: inline-block;
+        float: left;
+        background: rgba(0,0,0,0.4);
+    }
 
 /* Styling the links */
 nav a {
-  color: #ddd;
+  color:white;
   text-transform: capitalize;
   letter-spacing: 1px;
   padding-left: 0;
   padding-right: 0;
   padding: 10px 13px;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 18px;
   vertical-align: middle;
 }
 nav li.booking a {
-  background: #047ffc;
-  border: none;
-  border-radius: 4px;
-  box-shadow: 0 5px 0 #2c74b3;
-  padding: 10px 25px;
-  display: block;
-  margin-top: -7px;
-  text-transform: uppercase;
-  color: #fff;
-  letter-spacing: 1px;
-  font-size: 14px;
+    background: #4384ad;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 5px 0 #2c74b3;
+    padding: 10px 25px;
+    display: block;
+    margin-top: -7px;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 1px;
+    font-size: 14px;
+    height: 55px;
 }
 
 nav li.booking a:hover {
@@ -386,7 +391,7 @@ li > a:only-child:after {
 }
 
 .banner-top {
-  background: url(../images/banner_he.png) no-repeat center;
+  background: url(../images/banner1.jpg) no-repeat center;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -1033,7 +1038,7 @@ a.move-top span {
 
 /*-- inner banner --*/
 .banner_inner {
-  background: url(../images/banner1.jpg) no-repeat center;
+  background: url(../images/banner_inner.jpg) no-repeat center;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -1042,7 +1047,7 @@ a.move-top span {
   min-height: 300px;
 }
 .banner_inner_overlay {
-  background: rgba(0, 0, 0, 0.5);
+ 
   min-height: 300px;
 }
 

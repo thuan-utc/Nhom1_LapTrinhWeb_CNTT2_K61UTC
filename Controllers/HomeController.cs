@@ -44,9 +44,37 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 			ViewBag.DiaDiem="Thái Lan";
 			return View(lst);
 		}
+        public IActionResult TourSingapore(int? page)
+        {
+            int pageNumber = page == null || page < 1 ? 1 : page.Value;
+            int pageSize = 9;
+            var listTour = tour.Tours.AsNoTracking().Where(x => x.DiaDiem == "Singapore").ToList();
+            PagedList<Tour> lst = new PagedList<Tour>(listTour, pageNumber, pageSize);
+            ViewBag.DiaDiem = "Singapore";
+            return View(lst);
+        }
+        public IActionResult TourChina(int? page)
+        {
+            int pageNumber = page == null || page < 1 ? 1 : page.Value;
+            int pageSize = 9;
+            var listTour = tour.Tours.AsNoTracking().Where(x => x.DiaDiem == "Trung Quốc").ToList();
+            PagedList<Tour> lst = new PagedList<Tour>(listTour, pageNumber, pageSize);
+            ViewBag.DiaDiem = "Trung Quốc";
+            return View(lst);
+        }
+        public IActionResult TourAnh(int? page)
+        {
+            int pageNumber = page == null || page < 1 ? 1 : page.Value;
+            int pageSize = 9;
+            var listTour = tour.Tours.AsNoTracking().Where(x => x.DiaDiem == "Anh Quốc").ToList();
+            PagedList<Tour> lst = new PagedList<Tour>(listTour, pageNumber, pageSize);
+            ViewBag.DiaDiem = "Anh Quốc";
+            return View(lst);
+        }
 
-		
-		public IActionResult TourDetail(int matour)
+
+
+        public IActionResult TourDetail(int matour)
 		{
 			var sanpham = tour.Tours.SingleOrDefault(x => x.MaTour == matour);
 			var anhtour = tour.AnhTours.Where(x => x.MaTour == matour).ToList();
