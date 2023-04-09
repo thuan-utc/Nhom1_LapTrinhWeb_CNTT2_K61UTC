@@ -22,4 +22,6 @@ public partial class Cttour
     public string DoiTuongTh { get; set; } = null!;
 
     public string? UuDai { get; set; }
+
+    public virtual Tour MaTourNavigation { get; set; } = null!;
 }
