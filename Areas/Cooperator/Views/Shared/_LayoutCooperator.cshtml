@@ -1,14 +1,19 @@
-﻿<!DOCTYPE html>
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+      <!-- Layout styles -->
+    <link rel="stylesheet" href="../Assets/LayoutAdmin/assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="../../LayoutAdmin/assets/images/favicon.ico" />
     <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.0.9/./Assets/css/boxicons.min.css' rel='stylesheet'>
     <!-- My CSS -->
     <link rel="stylesheet" href="../Assets/css/admin.css">
     <title>AdminHub</title>
+
 </head>
 <body>
 
@@ -21,13 +26,13 @@
         </a>
         <ul class="side-menu top">
             <li class="tab-item active">
-                <a href="#">
+                <a asp-controller="homecooperator" asp-action="historyaddtour">
                     <i class='bx bxs-dashboard'></i>
-                    <span class="text">Dashboard</span>
+                    <span class="text">ListTour</span>
                 </a>
             </li>
             <li class="tab-item">
-                <a href="#">
+                <a asp-controller="homecooperator" asp-action="addtour">
                     <i class='bx bxs-shopping-bag-alt'></i>
                     <span class="text">Menu</span>
                 </a>
@@ -83,15 +88,12 @@
 
             <div class="head-title">
                 <div class="left">
-                    <h1>Dashboard</h1>
                     <ul class="breadcrumb">
                         <li>
-                            <a href="#">Dashboard</a>
+                            <a href="#"></a>
                         </li>
-                        <li><i class='bx bx-chevron-right'></i></li>
-                        <li>
-                            <a class="active" href="#">Home</a>
-                        </li>
+                       
+                       
                     </ul>
                 </div>
             </div>
