@@ -142,12 +142,12 @@ insert into CTHD (MaHD,NgayTao,Gia,SoVe) values(1,'2023/04/01',1000000,10)
 
 --insert TaiKhoan 
 insert into TaiKhoan(taikhoan,matkhau,email,loai) values 
-('nbtuan','123456',N'tuan@gmail.com','quanly'),
-('ndthuan','123456',N'thuan@gmail.com','qualy'),
-('tbquoc','123456',N'quoc@gmail.com','daily'),
-('ntphuong','123456',N'phuong@gmail.com','khachhang'),
-('ntnhung','123456',N'nhung@gmail.com','khachhang'),
-('cmquan','123456',N'quan@gmail.com','khachhang')
+('nbtuan','123456',N'tuan@gmail.com','admin'),
+('ndthuan','123456',N'thuan@gmail.com','cooperator'),
+('tbquoc','123456',N'quoc@gmail.com','cooperator'),
+('ntphuong','123456',N'phuong@gmail.com','customer'),
+('ntnhung','123456',N'nhung@gmail.com','customer'),
+('cmquan','123456',N'quan@gmail.com','customer')
 
 
 
