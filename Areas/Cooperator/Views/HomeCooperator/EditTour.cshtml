@@ -45,8 +45,13 @@
                 <span asp-validation-for="NgayKt" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="NoiKhoiHanh" class="control-label"></label>
+                <input asp-for="NoiKhoiHanh" class="form-control" />
+                <span asp-validation-for="NoiKhoiHanh" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="AnhTour" class="control-label"></label>
-                <input asp-for="AnhTour" class="form-control" />
+                <input asp-for="AnhTour" class="form-control" type="file" />
                 <span asp-validation-for="AnhTour" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -64,11 +69,7 @@
                 <input asp-for="IsDeleted" class="form-control" />
                 <span asp-validation-for="IsDeleted" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="NoiKhoiHanh" class="control-label"></label>
-                <input asp-for="NoiKhoiHanh" class="form-control" />
-                <span asp-validation-for="NoiKhoiHanh" class="text-danger"></span>
-            </div>
+           
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
