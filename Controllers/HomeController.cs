@@ -17,7 +17,8 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
             _logger = logger;
         }
 
-        [Route("index")]		
+        [Route("index")]
+		[Route("")]
 		public IActionResult Index(int? page)
 		{
 			int pageNumber = page == null || page < 1 ? 1 : page.Value;
@@ -36,12 +37,6 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
             return View(sanpham);
         }
 
-
-        public IActionResult Privacy()
-        {
-            return View();
-            ///////
-        }
         [HttpGet]
         public IActionResult LoginCustumer()
         {
