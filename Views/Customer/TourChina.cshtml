@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "TourChina";
+    Layout = "CustomerLayout";
+}
+@using X.PagedList.Mvc.Core
+@model X.PagedList.IPagedList<Tour>
+
+@foreach (var item in Model)
+{
+    @await Html.PartialAsync("_PartialTour", item)
+}
+
+<div style="margin: 0 auto">
+    @Html.PagedListPager(Model,page => Url.Action("TourChina", new {page=page, TenTour=@ViewBag.DiaDiem}),new X.PagedList.Web.Common.PagedListRenderOptions(){
+    LiElementClasses = new List<String> {"page-item"},
+    PageClasses = new List<String> {"page-link"}
+    })
+</div>
