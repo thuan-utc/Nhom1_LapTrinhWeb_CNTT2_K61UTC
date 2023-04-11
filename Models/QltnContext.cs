@@ -98,7 +98,7 @@ public partial class QltnContext : DbContext
                 .HasMaxLength(100)
                 .HasColumnName("ĐiemTQ");
 
-            entity.HasOne(d => d.MaTourNavigation).WithMany(p => p.Cttours)
+            entity.HasOne(d => d.MaTourNavigation).WithMany()
                 .HasForeignKey(d => d.MaTour)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_CTTour_Tour");

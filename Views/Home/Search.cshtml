@@ -1,0 +1,114 @@
+﻿<!--
+author: W3layouts
+author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+@{
+	ViewData["Title"] = "Search";
+	Layout = null;
+}
+@using X.PagedList.Mvc.Core;
+@using X.PagedList.Mvc;
+@model X.PagedList.IPagedList<Nhom1_LapTrinhWeb_CNTT2_K61.Models.Tour>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Grand Tour Travel Category Flat Bootstrap Responsive Web Template | Packages :: w3layouts</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta name="keywords" content="Grand Tour Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+
+	<!-- css files -->
+	<link href="../Assets/css/bootstrap.css" rel='stylesheet' type='text/css' /><!-- bootstrap css -->
+	<link href="../Assets/css/style.css" rel='stylesheet' type='text/css' /><!-- custom css -->
+	<link href="../Assets/css/font-awesome.min.css" rel="stylesheet"><!-- fontawesome css -->
+	<!-- //css files -->
+	<!-- google fonts -->
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+	<!-- //google fonts -->
+	<!-- Search -->
+	<!-- Icons font CSS-->
+	<link href="vendor/mdi-font/../Assets/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+	<link href="vendor/font-awesome-4.7/../Assets/css/font-awesome.min.css" rel="stylesheet" media="all">
+	<!-- Font special for pages-->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+
+	<!-- Vendor CSS-->
+	<link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+	<link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+	<!-- Main CSS-->
+	<link href="../Assets/css/search.css" rel="stylesheet" media="all">
+	<!-- Search -->
+</head>
+<body>
+
+	@await Html.PartialAsync("headerCustomer")
+
+	<!-- </div> -->
+	<!-- //Search -->
+	<!-- tour packages -->
+	<section class="packages pt-5">
+		<div class="container py-lg-4 py-sm-3 col-md-9">
+			<h2 class="heading text-capitalize text-center"> Discover our tour packages</h2>
+			<p class="text mt-2 mb-5 text-center">Vestibulum tellus neque, sodales vel mauris at, rhoncus finibus augue. Vestibulum urna ligula, molestie at ante ut, finibus vulputate felis.</p>
+			<div class="row">
+
+				<section class="product-details spad">
+					<div class="container">
+						<div class="row">
+
+
+                            @if(Model.Count() == 0)
+                            {
+								<h1>Không tìm thấy tour nào theo yêu cầu của bạn</h1>
+                            }
+                            else
+                            {
+                                @foreach (var item in Model)
+                            {  
+                                @await Html.PartialAsync("_PartialTour", item)
+                            }
+    
+ 
+                            <div style="margin: 0 auto">
+                              @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }), new X.PagedList.Web.Common.PagedListRenderOptions(){
+                               LiElementClasses = new List<String> {"page-item"},
+                               PageClasses = new List<String> {"page-link"}
+                               }) 
+                            </div>
+}
+						</div>
+					</div>
+				</section>
+
+
+
+			</div>
+		</div>
+	</section>
+	<!-- tour packages -->
+	@await Html.PartialAsync("footerCustomer")
+</body>
+</html>
+
+
+
+
+
+
+
+
