@@ -29,7 +29,15 @@ public partial class Tour
 
     public string? NoiKhoiHanh { get; set; }
 
+    public int? Sltcl { get; set; }
+
+    public int? MaQg { get; set; }
+
+    public virtual ICollection<Cttour> Cttours { get; } = new List<Cttour>();
+
     public virtual ICollection<HoaDon> HoaDons { get; } = new List<HoaDon>();
 
     public virtual NhanVien? MaNvNavigation { get; set; }
+
+    public virtual TquocGium? MaQgNavigation { get; set; }
 }

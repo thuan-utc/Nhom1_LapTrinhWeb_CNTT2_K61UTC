@@ -24,23 +24,21 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Areas.Cooperator.Controllers
             var lstlichsu = Tourdb.Tours.ToList();
             return View(lstlichsu);
         }
-
-
-   
-
-        [Route("listBookTour")]
-        public IActionResult ListBookTour(int tour)
+        [Route("listbooktour")]
+        public IActionResult KHTheoTour(int khtour)
         {
-            var lst = Tourdb.HoaDons.Where
-                 (x => x.MaHd == tour);
-            if (lst.Count() == 0)
-            {
-                lst = Tourdb.HoaDons.AsNoTracking();
-            }
-            ViewBag.mahd = tour;
-            return View(lst);
+            var kh = (from c in Tourdb.KhachHangs
+                     join t in Tourdb.HoaDons on c.MaKh equals t.MaKh
+                     join q in Tourdb.Tours on t.MaTour equals q.MaTour
+                     where q.MaTour == khtour
+                     select new Product
+                     {
+                         TenKh = c.TenKh,
+                         Sdt = c.Sdt,
+                    });
+            ViewBag.kh = kh;
+            return View();
         }
-
 
         [Route("addtour")]
         [HttpGet]

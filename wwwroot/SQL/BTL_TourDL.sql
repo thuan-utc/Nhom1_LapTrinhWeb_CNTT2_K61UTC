@@ -32,9 +32,11 @@ create table Tour(
 	MaTour int identity not null primary key,
 	MaNV int ,
 	TenTour nvarchar(30) not null,
+	Diadiem nvarchar(50) not null,
 	ChiTietLT nvarchar(500) not null,
 	NgayBD datetime not null,
 	NgayKT datetime not null,
+	NoiKhoiHanh nvarchar(200) not null,
 	AnhTour nvarchar(300) not null,
 	Gia money,
 	Active int default 0,
@@ -84,6 +86,7 @@ create table CTTour(
 	KhachSan nvarchar(40) not null,
 	DoiTuongTH nvarchar(50) not null,
 	UuDai nvarchar(20),
+	CONSTRAINT fk_CTTour_Tour FOREIGN KEY (MaTour) REFERENCES Tour(MaTour)
 )
 insert into CTTour(MaTour,ThoiGian,PhuongTien,AmThuc,KhachSan,DoiTuongTH)values
 (18,N'3 ngày 2 đêm',N'Máy bay, Xe du lịch',N'Buff sáng, Theo thực đơn, Đặc sản địa phương',N'Khách sạn 4 sao',N'Gia đình nhiều thế hệ'),
