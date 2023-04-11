@@ -67,67 +67,67 @@
 </style>
 
 <script>
-    $(document).ready(function() {
+        $(document).ready(function() {
 
-   
-   // inspired by http://jsfiddle.net/arunpjohny/564Lxosz/1/
-   $('.table-responsive-stack').find("th").each(function (i) {
-      
-      $('.table-responsive-stack td:nth-child(' + (i + 1) + ')').prepend('<span class="table-responsive-stack-thead">'+ $(this).text() + ':</span> ');
-      $('.table-responsive-stack-thead').hide();
-   });
 
-   
-   
-   
-   
-$( '.table-responsive-stack' ).each(function() {
-  var thCount = $(this).find("th").length; 
-   var rowGrow = 100 / thCount + '%';
-   //console.log(rowGrow);
-   $(this).find("th, td").css('flex-basis', rowGrow);   
-});
-   
-   
-   
-   
-function flexTable(){
-   if ($(window).width() < 768) {
-      
-   $(".table-responsive-stack").each(function (i) {
-      $(this).find(".table-responsive-stack-thead").show();
-      $(this).find('thead').hide();
-   });
-      
-    
-   // window is less than 768px   
-   } else {
-      
-      
-   $(".table-responsive-stack").each(function (i) {
-      $(this).find(".table-responsive-stack-thead").hide();
-      $(this).find('thead').show();
-   });
-      
-      
+       // inspired by http://jsfiddle.net/arunpjohny/564Lxosz/1/
+       $('.table-responsive-stack').find("th").each(function (i) {
 
-   }
-// flextable   
-}      
- 
-flexTable();
-   
-window.onresize = function(event) {
+          $('.table-responsive-stack td:nth-child(' + (i + 1) + ')').prepend('<span class="table-responsive-stack-thead">'+ $(this).text() + ':</span> ');
+          $('.table-responsive-stack-thead').hide();
+       });
+
+
+
+
+
+    $( '.table-responsive-stack' ).each(function() {
+      var thCount = $(this).find("th").length;
+       var rowGrow = 100 / thCount + '%';
+       //console.log(rowGrow);
+       $(this).find("th, td").css('flex-basis', rowGrow);
+    });
+
+
+
+
+    function flexTable(){
+       if ($(window).width() < 768) {
+
+       $(".table-responsive-stack").each(function (i) {
+          $(this).find(".table-responsive-stack-thead").show();
+          $(this).find('thead').hide();
+       });
+
+
+       // window is less than 768px
+       } else {
+
+
+       $(".table-responsive-stack").each(function (i) {
+          $(this).find(".table-responsive-stack-thead").hide();
+          $(this).find('thead').show();
+       });
+
+
+
+       }
+    // flextable
+    }
+
     flexTable();
-};
-   
-   
-   
-   
 
-  
-// document ready  
-});
+    window.onresize = function(event) {
+        flexTable();
+    };
+
+
+
+
+
+
+    // document ready
+    });
 
 
 
@@ -143,12 +143,12 @@ window.onresize = function(event) {
                     <i class='bx bx-search'></i>
                     <i class='bx bx-filter'></i>
                     <div>
-                    <a asp-controller="HomeCooperator" asp-action="AddTour" class="create">
-                        <button type="button" class="snip1582" asp-controller="HomeCooperator" asp-action="AddTour">
-                            <i></i>Create New
-                        </button>
-                    </a>
-</div>
+                        <a asp-controller="HomeCooperator" asp-action="AddTour" class="create">
+                            <button type="button" class="snip1582" asp-controller="HomeCooperator" asp-action="AddTour">
+                                <i></i>Create New
+                            </button>
+                        </a>
+                    </div>
                 </div>
                 <table>
                     <thead>
@@ -186,8 +186,8 @@ window.onresize = function(event) {
                                     }
                                 </td>
                                 <td>
-                                    <a class="btn-sm btn-gradient-dark "  asp-action="edittour" asp-route-etour="@item.MaTour">Edit</a> 
-                                    <a class="btn-sm btn-gradient-info"asp-controller="home" asp-action="TourDetail" asp-route-matour="@item.MaTour">Details</a> 
+                                    <a class="btn-sm btn-gradient-dark " asp-action="edittour" asp-route-etour="@item.MaTour">Edit</a>
+                                    <a class="btn-sm btn-gradient-info" asp-controller="home" asp-action="TourDetail" asp-route-matour="@item.MaTour">Details</a>
                                     <a class="btn-sm btn-gradient-danger" asp-action="deleteTour" asp-route-matour="@item.MaTour">Delete</a>
                                 </td>
                             </tr>
