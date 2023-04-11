@@ -34,14 +34,14 @@
 <div class="wrapper wrapper--w1226">
 	<div class="card card-7">
 		<div class="card-body">
-			<form class="form" method="POST" action="#">
+			<form class="form" method="POST" asp-controller="Home" asp-action="Search">
 				<div class="input-group input--large">
-					<label class="label">travel destinations</label>
-					<input class="input--style-1" type="text" placeholder="Destination, hotel name" name="going">
+					<label class="label">From</label>
+					<input class="input--style-1" type="text" placeholder="Name" name="from">
 				</div>
 				<div class="input-group input--large">
-					<label class="label">tourist spots</label>
-					<input class="input--style-1" type="text" placeholder="Destination, hotel name" name="going">
+					<label class="label">To</label>
+					<input class="input--style-1" type="text" placeholder="Name" name="to">
 				</div>
 				<div class="input-group input--medium">
 					<label class="label">Check-In</label>

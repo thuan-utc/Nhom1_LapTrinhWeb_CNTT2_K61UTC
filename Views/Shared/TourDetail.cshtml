@@ -110,7 +110,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											</div>
 										</li>
 										<li>
-											<a asp-controller="Home" asp-action="Booking" class="primary-btn" style="display: inline-block; background-color: #1E90FF; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Book Now</a>
+											<a asp-controller="Home" asp-action="Booking" asp-route-tourId="@ViewBag.sanpham.MaTour" asp-route-tourName="@ViewBag.sanpham.TenTour" asp-route-tourImage="@ViewData["TourImage"]"><button class="btn btn-primary">Book Now</button></a>
+
+
 										</li>
 									</ul>
 								</div>

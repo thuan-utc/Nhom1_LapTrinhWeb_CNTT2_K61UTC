@@ -1,9 +1,11 @@
 ﻿using Azure;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Nhom1_LapTrinhWeb_CNTT2_K61.Models;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing.Printing;
 using X.PagedList;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
@@ -28,6 +30,8 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 		}
 		public IActionResult Packages(int? page)
 		{
+		
+
 			int pageNumber = page == null || page < 1 ? 1 : page.Value;
 			int pageSize = 9;
 			var listTour = tour.Tours;
@@ -74,20 +78,69 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 
 
 
-        public IActionResult TourDetail(int matour)
+		public IActionResult TourDetail(int matour)
 		{
 			var sanpham = tour.Tours.SingleOrDefault(x => x.MaTour == matour);
-			var anhtour = tour.AnhTours.Where(x => x.MaTour == matour).ToList();
-			ViewBag.anhtour = anhtour.ToList();
+			if (sanpham == null)
+			{
+				return NotFound();
+			}
+
+			ViewData["TourId"] = sanpham.MaTour;
+			ViewData["TourName"] = sanpham.TenTour;
+			ViewData["TourImage"] = "../Media/ImagesTour/" + sanpham.AnhTour +".jpg";
+			ViewBag.sanpham = sanpham;
 			return View(sanpham);
 		}
-		public IActionResult Booking(int matour)
+		public IActionResult Booking(int tourId)
 		{
-		
-		
+			var tourDetails = (from t in tour.Tours
+							   join ct in tour.Cttours on t.MaTour equals ct.MaTour
+							   where t.MaTour == tourId
+							   select new
+							   {
+								   t.MaTour,
+								   t.TenTour,
+								   t.Gia,
+								   ct.ThoiGian,
+								   ct.KhachSan,
+								   ct.AmThuc,
+								   ct.PhuongTien,
+								   ct.DoiTuongTh,
+								   ct.UuDai
+							   }).ToList();
+			ViewBag.TourDetails = tourDetails;
 			return View();
 		}
-	
+		public IActionResult TourTheoQuocGia(int MaQg, int? page)
+		{
+			int pageNumber = page == null || page < 1 ? 1 : page.Value;
+			int pageSize = 9;
+			var listSanPham = tour.Tours.AsNoTracking().Where(x => x.MaQg == MaQg).ToList();
+			PagedList<Tour> lst = new PagedList<Tour>(listSanPham, pageNumber, pageSize);
+			ViewBag.MaQg = MaQg;
+			return View(lst);
+		}
+
+
+
+		public IActionResult Search(TourSearchModel model, int? page)
+		{
+			var tours = tour.Tours
+				.Where(t => t.NoiKhoiHanh == model.From
+							&& t.DiaDiem == model.To
+							&& t.NgayBd >= model.Checkin
+							&& t.NgayKt <= model.Checkout)
+				.ToList();
+			int pageSize = 10;
+			int pageNumber = (page ?? 1);
+			var pagedTours = tours.ToPagedList(pageNumber, pageSize);
+
+			return View(pagedTours);
+		}
+
+		
+
 
 
 		public IActionResult Privacy()

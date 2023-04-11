@@ -1,0 +1,7 @@
+﻿@model IEnumerable<TquocGium>
+<ul class="col-6 links">
+    @foreach (var quocGia in Model)
+			{
+				<li><a href="/home/tourtheoquocgia?MaQg=@quocGia.MaQg">@quocGia.TenQg</a></li>
+			}
+</ul>
