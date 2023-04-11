@@ -27,10 +27,9 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 		public IActionResult Index(int? page)
 		{
 			int pageNumber = page == null || page < 1 ? 1 : page.Value;
-			int pageSize = 9;
-			var listTour = tour.Tours;
-			var listSanPham = tour.Tours.AsNoTracking().OrderBy(x => x.TenTour);
-			PagedList<Tour> lst = new PagedList<Tour>(listSanPham, pageNumber, pageSize);
+			int pageSize = 4;
+			var listTour = tour.Tours.AsNoTracking().OrderBy(x => x.TenTour);
+			PagedList<Tour> lst = new PagedList<Tour>(listTour, pageNumber, pageSize);
 			return View(lst);
 
 		}
@@ -42,11 +41,39 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 			return View(sanpham);
 		}
 
-
-		[HttpGet]
-		public IActionResult LoginCustumer()
+        public IActionResult AboutUs()
+        {
+            return View();
+        }
+		public IActionResult Cooperate()
 		{
 			return View();
+		}
+		public IActionResult Services()
+		{
+			return View();
+		}
+		public IActionResult Contact()
+		{
+			return View();
+		}
+		public IActionResult Packages(int? page )
+		{
+			int pageNumber = page == null || page < 1 ? 1 : page.Value;
+			int pageSize = 8;
+			var listTour = tour.Tours.AsNoTracking().OrderBy(x => x.TenTour);
+			PagedList<Tour> lst = new PagedList<Tour>(listTour, pageNumber, pageSize);
+			return View(lst);
+		}
+		public IActionResult Privacy()
+        {
+            return View();
+            ///////
+        }
+        [HttpGet]
+        public IActionResult LoginCustumer()
+        {
+            return View();
 
 		}
 
