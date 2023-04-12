@@ -131,21 +131,7 @@
 						<h3>Travel Places</h3>
 					</div>
 					<div class="row">
-						<ul class="col-6 links">
-							<li><a href="#choose" class="scroll">New Zealand </a></li>
-							<li><a href="#overview" class="scroll">Paris, France </a></li>
-							<li><a href="#pricing" class="scroll">Los Angles</a></li>
-							<li><a href="#faq" class="scroll"> Darlington</a></li>
-							<li><a href="#testimonials" class="scroll">Canada </a></li>
-							<li><a href="#contact" class="scroll"> South Africa </a></li>
-						</ul>
-						<ul class="col-6 links">
-							<li><a href="#">Spain </a></li>
-							<li><a href="#">Turkey </a></li>
-							<li><a href="#faq" class="scroll">Europe </a></li>
-							<li><a href="#">Italy </a></li>
-							<li><a href="#">Sweden </a></li>
-						</ul>
+						@await Component.InvokeAsync("QuocGiaMenu")
 					</div>
 				</div>
 				<div class="col-lg-3 col-sm-6 mt-lg-0 mt-4 footer-grid_section_1its_w3">
