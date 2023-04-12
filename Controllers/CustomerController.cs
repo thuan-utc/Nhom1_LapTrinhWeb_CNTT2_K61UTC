@@ -5,10 +5,12 @@ using X.PagedList;
 
 namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 {
+	[Route("customer")]
 	public class CustomerController : Controller
 	{
 		TourManagementContext tour = new TourManagementContext();
 		private readonly ILogger<HomeController> _logger;
+		[Route("index")]
 		public IActionResult Index()
 		{
 			return View();
