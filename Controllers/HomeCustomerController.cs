@@ -16,10 +16,9 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 		{
 			return View();
 		}
+		[Route("packages")]
 		public IActionResult Packages(int? page)
 		{
-
-
 			int pageNumber = page == null || page < 1 ? 1 : page.Value;
 			int pageSize = 9;
 			var listTour = tour.Tours;
