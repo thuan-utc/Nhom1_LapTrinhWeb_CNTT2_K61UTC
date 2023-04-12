@@ -1,7 +1,45 @@
 ﻿@model IEnumerable<TquocGium>
 <ul class="col-6 links">
     @foreach (var quocGia in Model)
-			{
-				<li><a href="/home/tourtheoquocgia?MaQg=@quocGia.MaQg">@quocGia.TenQg</a></li>
+	 {
+	    var getUrl = "https://localhost:7207/api/tourcustomerapi/" + quocGia.MaQg;
+        <li>
+            <a style="cursor:pointer" onclick="showTourByNational('@getUrl')">@quocGia.TenQg</a>
+
+		</li>
 			}
 </ul>
+<script>
+    function showTourByNational(getUrl) {
+        var str = '';
+        $.ajax({
+            type: 'GET',
+            url: getUrl,
+            dataType: 'json',
+            success: function (data) {
+                $.each(data, function (key, val) {
+                    str += `<div class="col-lg-4 col-sm-6 mb-5">
+	                          <div class="image-tour position-relative">
+                                      <img src="../Media/ImagesTour/${val.AnhTour} alt="" class="img-fluid" />
+                                      <p><span class="fa fa-tags"></span> <span>${val.Gia}.ToString("#,##0") VND</span></p>
+	                          </div>
+	                          <div class="package-info" style="height:300px">
+                                       <h6 class="mt-1"><span class="fa fa-map-marker mr-2"></span>${val.DiaDiem}</h6>
+                                           <h5 class="my-2"><a asp-controller="Home" asp-action="TourDetail" asp-route-matour="${val.maTour}">${val.TenTour}</a></h5>
+		                           <ul class="listing mt-3">
+                                           <li><span class="fa fa-clock-o mr-2"></span>From: <span>${val.NgayBd}</span></li>
+                                            <li><span class="fa fa-clock-o mr-2"></span>To: <span>${val.NgayKt}</span></li>
+		                           </ul>
+	                          </div>
+                          </div>`
+                    //  str += '<p>' + val.tenSp + '<p>'
+
+                });
+                $('#displayTours').html(str);
+            },
+            Error: function (xhr) {
+                alert(xhr.responseText)
+            }
+        });
+    }
+</script>

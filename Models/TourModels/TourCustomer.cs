@@ -14,5 +14,7 @@
 		public string AnhTour { get; set; } = null!;
 
 		public decimal? Gia { get; set; }
+
+		public int? MaQg { get; set; }
 	}
 }

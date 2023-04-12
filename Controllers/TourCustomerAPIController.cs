@@ -21,29 +21,31 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 							  TenTour = p.TenTour,
 							  DiaDiem = p.DiaDiem,
 							  ChiTietLt = p.ChiTietLt,
-							  NgayBd= p.NgayBd,
-							  NgayKt= p.NgayKt,
+							  NgayBd = p.NgayBd,
+							  NgayKt = p.NgayKt,
 							  Gia=p.Gia,
-							  AnhTour = p.AnhTour
+							  AnhTour=p.AnhTour,
+							  MaQg=p.MaQg,
 						  }).ToList();
 			return tourCustomers;
 		}
-		[HttpGet("{MaQg}")]
+		[HttpGet("{caulacboid}")]
 		public IEnumerable<TourCustomer> GetTourByNational(int MaQgia)
 		{
 			var tourCustomers = (from p in db.Tours
-						  where p.MaQg == MaQgia
-						  select new TourCustomer
+								 where p.MaQg == MaQgia
+								 select new TourCustomer
 						  {
-							  MaTour = p.MaTour,
-							  TenTour = p.TenTour,
-							  DiaDiem = p.DiaDiem,
-							  ChiTietLt = p.ChiTietLt,
-							  NgayBd = p.NgayBd,
-							  NgayKt = p.NgayKt,
-							  Gia = p.Gia,
-							  AnhTour = p.AnhTour
-						  }).ToList();
+									 MaTour = p.MaTour,
+									 TenTour = p.TenTour,
+									 DiaDiem = p.DiaDiem,
+									 ChiTietLt = p.ChiTietLt,
+									 NgayBd = p.NgayBd,
+									 NgayKt = p.NgayKt,
+									 Gia = p.Gia,
+									 AnhTour = p.AnhTour,
+									 MaQg = p.MaQg,
+								 }).ToList();
 			return tourCustomers;
 		}
 	}
