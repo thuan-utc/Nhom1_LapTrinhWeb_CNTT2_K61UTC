@@ -32,7 +32,7 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 						case "agency":
 							return RedirectToAction("Index", "HomeCooperator");
 						case "customer":
-							return RedirectToAction("Index", "Customer");
+							return RedirectToAction("Index", "HomeCustomer");
 						default:
 							return View();
 					}
