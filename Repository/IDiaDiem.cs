@@ -2,17 +2,17 @@
 
 namespace Nhom1_LapTrinhWeb_CNTT2_K61.Repository
 {
-    public interface IDiaDiemRepository
+    public interface IDiaDiem
     {
         TquocGium Add(TquocGium quocgia);
 		//Để thêm vào CSDL
 		TquocGium Update(TquocGium quocgia);
         //Để update CSDL
-        TquocGium Delete(String MaQg);
+        TquocGium Delete(int MaQg);
         //Để xóa CSDL
-        TquocGium GetQuocGia(String MaQg);
+        TquocGium GetQuocGia(int MaQg);
         //Để tìm trong CSDL
-        IEnumerable<TquocGium> GetQuocGia();
+        IEnumerable<TquocGium> GetAllQuocGia();
         //Để lấy toàn bộ CSDL
 
     }
