@@ -2,11 +2,11 @@
 
 namespace Nhom1_LapTrinhWeb_CNTT2_K61.Repository
 {
-    public class DiaDiemRepository
+    public class DiaDiem:IDiaDiem
     {
 		private readonly TourManagementContext _context;
 
-		public DiaDiemRepository(TourManagementContext context)
+		public DiaDiem(TourManagementContext context)
 		{
 			_context = context;
 		}
@@ -23,16 +23,22 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Repository
 			throw new NotImplementedException();
 		}
 
-		public IEnumerable<TquocGium> GetAllQuocGium()
-		{
-			return _context.TquocGia;
-		}
+        public TquocGium Delete(int MaQg)
+        {
+            throw new NotImplementedException();
+        }
 
-		public TquocGium GetQuocGium(string MaQg)
-		{
-			return _context.TquocGia.Find(MaQg);
-		}
+        public IEnumerable<TquocGium> GetAllQuocGia()
+        {
+            return _context.TquocGia;
+        }
 
+        public TquocGium GetQuocGia(int MaQg)
+        {
+            return _context.TquocGia.Find(MaQg);
+        }
+
+  
 		public TquocGium Update(TquocGium MaQg)
 		{
 			_context.Update(MaQg);

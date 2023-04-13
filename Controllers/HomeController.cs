@@ -33,13 +33,6 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 			return View(lst);
 
 		}
-		public IActionResult TourDetail(int matour)
-		{
-			var sanpham = tour.Tours.SingleOrDefault(x => x.MaTour == matour);
-			var anhtour = tour.AnhTours.Where(x => x.MaTour == matour).ToList();
-			ViewBag.anhtour = anhtour.ToList();
-			return View(sanpham);
-		}
 
         public IActionResult AboutUs()
         {
@@ -65,18 +58,6 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 			PagedList<Tour> lst = new PagedList<Tour>(listTour, pageNumber, pageSize);
 			return View(lst);
 		}
-		public IActionResult Privacy()
-        {
-            return View();
-            ///////
-        }
-        [HttpGet]
-        public IActionResult LoginCustumer()
-        {
-            return View();
-
-		}
-
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 		public IActionResult Error()
 		{

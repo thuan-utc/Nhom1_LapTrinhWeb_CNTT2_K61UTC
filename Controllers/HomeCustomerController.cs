@@ -5,18 +5,20 @@ using X.PagedList;
 
 namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 {
-	public class CustomerController : Controller
+	[Route("customer")]
+	public class HomeCustomerController : Controller
 	{
 		TourManagementContext tour = new TourManagementContext();
 		private readonly ILogger<HomeController> _logger;
+		[Route("index")]
+		[Route("")]
 		public IActionResult Index()
 		{
 			return View();
 		}
+		[Route("packages")]
 		public IActionResult Packages(int? page)
 		{
-
-
 			int pageNumber = page == null || page < 1 ? 1 : page.Value;
 			int pageSize = 9;
 			var listTour = tour.Tours;
