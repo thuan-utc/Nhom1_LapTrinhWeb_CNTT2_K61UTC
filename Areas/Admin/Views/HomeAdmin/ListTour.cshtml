@@ -57,7 +57,7 @@
                                     }
                                 </td>
                                 <td>
-                                    <button asp-action="EditTour" asp-route-maTour="@item.MaTour">Edit</button> 
+                                    <button asp-action="EditTour" asp-controller="ListTour" asp-route-maTour="@item.MaTour">Edit</button> 
                                     <button asp-action="Details" asp-route-id="@item.MaTour">Details</button> 
                                     <button asp-action="Delete" asp-route-id="@item.MaTour">Delete</button>
                                 </td>
