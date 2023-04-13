@@ -1,6 +1,6 @@
 ﻿@{
-    ViewData["Title"] = "TourChina";
-    Layout = "CustomerLayout";
+    ViewData["Title"] = "TourSingapore";
+    Layout = "_LayoutHomeCustomer";
 }
 @using X.PagedList.Mvc.Core
 @model X.PagedList.IPagedList<Tour>
@@ -11,7 +11,7 @@
 }
 
 <div style="margin: 0 auto">
-    @Html.PagedListPager(Model,page => Url.Action("TourChina", new {page=page, TenTour=@ViewBag.DiaDiem}),new X.PagedList.Web.Common.PagedListRenderOptions(){
+    @Html.PagedListPager(Model,page => Url.Action("TourSingapore", new {page=page, TenTour=@ViewBag.DiaDiem}),new X.PagedList.Web.Common.PagedListRenderOptions(){
     LiElementClasses = new List<String> {"page-item"},
     PageClasses = new List<String> {"page-link"}
     })
