@@ -144,7 +144,7 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
         }
 
         [Route("services")]
-        public IActionResult Service()
+        public IActionResult Services()
         {
             return View();
         }
