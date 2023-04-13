@@ -5,7 +5,9 @@
     Layout = "~/Areas/Cooperator/Views/Shared/_LayoutCooperator.cshtml";
 }
 
-<h1>Chỉnh sửa thông tin Tour</h1>
+<h1>EditTour</h1>
+
+<h4>Tour</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -33,6 +35,11 @@
                 <span asp-validation-for="ChiTietLt" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="MaQg" class="control-label"></label>
+                <select asp-for="MaQg" class="form-control" asp-items="ViewBag.MaQg"></select>
+                <span asp-validation-for="MaQg" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="NgayBd" class="control-label"></label>
                 <input asp-for="NgayBd" class="form-control" />
                 <span asp-validation-for="NgayBd" class="text-danger"></span>
@@ -43,13 +50,8 @@
                 <span asp-validation-for="NgayKt" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="NoiKhoiHanh" class="control-label"></label>
-                <input asp-for="NoiKhoiHanh" class="form-control" />
-                <span asp-validation-for="NoiKhoiHanh" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="AnhTour" class="control-label"></label>
-                <input asp-for="AnhTour" class="form-control" type="file" />
+                <input asp-for="AnhTour" class="form-control" />
                 <span asp-validation-for="AnhTour" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -67,7 +69,17 @@
                 <input asp-for="IsDeleted" class="form-control" />
                 <span asp-validation-for="IsDeleted" class="text-danger"></span>
             </div>
-           
+            <div class="form-group">
+                <label asp-for="NoiKhoiHanh" class="control-label"></label>
+                <input asp-for="NoiKhoiHanh" class="form-control" />
+                <span asp-validation-for="NoiKhoiHanh" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sltcl" class="control-label"></label>
+                <input asp-for="Sltcl" class="form-control" />
+                <span asp-validation-for="Sltcl" class="text-danger"></span>
+            </div>
+            
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
@@ -76,6 +88,6 @@
 </div>
 
 <div>
-    <a asp-action="historyaddTour">Back to List</a>
+    <a asp-action="Index">Back to List</a>
 </div>
 
