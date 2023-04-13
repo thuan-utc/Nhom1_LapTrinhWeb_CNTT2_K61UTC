@@ -7,7 +7,8 @@
     <meta name="keywords" content="Grand Tour Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 
-    <script>addEventListener("load", function () {
+    <script>
+        addEventListener("load", function () {
             setTimeout(hideURLbar, 0);
         }, false);
 
@@ -50,9 +51,40 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <!-- header -->
     @await Html.PartialAsync("PartialHeaderCustomer")
+
+    <section class="banner_inner" id="home">
+        <div class="banner_inner_overlay">
+        </div>
+    </section>
+
+    <div class="wrapper wrapper--w1226">
+        <div class="card card-7">
+            <div class="card-body">
+                <form class="form" method="POST" asp-controller="HomeCustomer" asp-action="Search">
+                    <div class="input-group input--large">
+                        <label class="label">From</label>
+                        <input class="input--style-1" type="text" placeholder="Name" name="from">
+                    </div>
+                    <div class="input-group input--large">
+                        <label class="label">To</label>
+                        <input class="input--style-1" type="text" placeholder="Name" name="to">
+                    </div>
+                    <div class="input-group input--medium">
+                        <label class="label">Check-In</label>
+                        <input class="input--style-1" type="text" name="checkin" placeholder="mm/dd/yyyy" id="input-start">
+                    </div>
+                    <div class="input-group input--medium">
+                        <label class="label">Check-Out</label>
+                        <input class="input--style-1" type="text" name="checkout" placeholder="mm/dd/yyyy" id="input-end">
+                    </div>
+                    <button class="btn-submit" type="submit">search</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
     <!-- //header -->
     <!-- banner -->
-
     <!-- </div> -->
     <!-- //Search -->
     <h2 class="heading text-capitalize text-center">
@@ -104,7 +136,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -115,7 +147,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <section class="packages pt-5">
         <div class="container py-lg-4 py-sm-3">
             <h2 class="heading text-capitalize text-center"> Discover our tour packages</h2>
-            <p class="text mt-2 mb-5 text-center">Every now and then go away, have a little relaxation, for when you come back to your work your judgment will be surer. Go some distance away because then the work appears smaller and more of it can be taken in at a glance and a lack of harmony and proportion is more readily seen.<br > – Leonardo da Vinci.</p>
+            <p class="text mt-2 mb-5 text-center">Every now and then go away, have a little relaxation, for when you come back to your work your judgment will be surer. Go some distance away because then the work appears smaller and more of it can be taken in at a glance and a lack of harmony and proportion is more readily seen.<br> – Leonardo da Vinci.</p>
             <div class="row">
                 @RenderBody()
             </div>
@@ -188,7 +220,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="destinations-info">
                         <div class="caption mb-lg-3">
                             <h4>Thái Lan </h4>
-                            <h5 class="my-2"><a asp-controller="Customer" asp-action="TourThaiLan" >See More </a></h5>
+                            <h5 class="my-2"><a asp-controller="Customer" asp-action="TourThaiLan">See More </a></h5>
                         </div>
                     </div>
                 </div>
@@ -209,7 +241,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="destinations-info">
                         <div class="caption mb-lg-3">
                             <h4>Singapore</h4>
-                            <h5 class="my-2"><a asp-controller="Customer" asp-action="TourSingapore" >See More </a></h5>
+                            <h5 class="my-2"><a asp-controller="Customer" asp-action="TourSingapore">See More </a></h5>
                         </div>
                     </div>
                 </div>

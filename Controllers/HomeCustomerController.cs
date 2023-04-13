@@ -26,7 +26,8 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 			PagedList<Tour> lst = new PagedList<Tour>(listSanPham, pageNumber, pageSize);
 			return View(lst);
 		}
-		public IActionResult TourThaiLan(int? page)
+        [Route("tourThaiLan")]
+        public IActionResult TourThaiLan(int? page)
 		{
 			int pageNumber = page == null || page < 1 ? 1 : page.Value;
 			int pageSize = 9;
@@ -35,7 +36,8 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 			ViewBag.DiaDiem = "Thái Lan";
 			return View(lst);
 		}
-		public IActionResult TourSingapore(int? page)
+        [Route("tourSingapore")]
+        public IActionResult TourSingapore(int? page)
 		{
 			int pageNumber = page == null || page < 1 ? 1 : page.Value;
 			int pageSize = 9;
@@ -44,7 +46,8 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 			ViewBag.DiaDiem = "Singapore";
 			return View(lst);
 		}
-		public IActionResult TourChina(int? page)
+        [Route("toureChina")]
+        public IActionResult TourChina(int? page)
 		{
 			int pageNumber = page == null || page < 1 ? 1 : page.Value;
 			int pageSize = 9;
@@ -53,7 +56,9 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 			ViewBag.DiaDiem = "Trung Quốc";
 			return View(lst);
 		}
-		public IActionResult TourAnh(int? page)
+
+        [Route("tourAnh")]
+        public IActionResult TourAnh(int? page)
 		{
 			int pageNumber = page == null || page < 1 ? 1 : page.Value;
 			int pageSize = 9;
@@ -63,9 +68,8 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 			return View(lst);
 		}
 
-
-
-		public IActionResult TourDetail(int matour)
+        [Route("tourDetail")]
+        public IActionResult TourDetail(int matour)
 		{
 			var sanpham = tour.Tours.SingleOrDefault(x => x.MaTour == matour);
 			if (sanpham == null)
@@ -79,7 +83,8 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 			ViewBag.sanpham = sanpham;
 			return View(sanpham);
 		}
-		public IActionResult Booking(int tourId)
+        [Route("booking")]
+        public IActionResult Booking(int tourId)
 		{
 			var tourDetails = (from t in tour.Tours
 							   join ct in tour.Cttours on t.MaTour equals ct.MaTour
@@ -99,7 +104,8 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 			ViewBag.TourDetails = tourDetails;
 			return View();
 		}
-		public IActionResult TourTheoQuocGia(int Maqg, int? page)
+        [Route("tourTheoQuocGia")]
+        public IActionResult TourTheoQuocGia(int Maqg, int? page)
 		{
 			int pageNumber = page == null || page < 1 ? 1 : page.Value;
 			int pageSize = 9;
@@ -109,9 +115,8 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 			return View(lst);
 		}
 
-
-
-		public IActionResult Search(TourSearchModel model, int? page)
+        [Route("search")]
+        public IActionResult Search(TourSearchModel model, int? page)
 		{
 			var tours = tour.Tours
 				.Where(t => t.NoiKhoiHanh == model.From
@@ -126,9 +131,22 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 			return View(pagedTours);
 		}
 
+        [Route("aboutUs")]
+        public IActionResult AboutUs()
+		{
+			return View();
+		}
 
+        [Route("contact")]
+        public IActionResult Contact()
+        {
+            return View();
+        }
 
-
-
-	}
+        [Route("services")]
+        public IActionResult Service()
+        {
+            return View();
+        }
+    }
 }
