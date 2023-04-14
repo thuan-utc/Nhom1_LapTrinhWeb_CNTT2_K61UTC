@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Azure;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Nhom1_LapTrinhWeb_CNTT2_K61.Models;
 using X.PagedList;
@@ -12,10 +13,14 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 		private readonly ILogger<HomeController> _logger;
 		[Route("index")]
 		[Route("")]
-		public IActionResult Index()
+		public IActionResult Index(int? page)
 		{
-			return View();
-		}
+            int pageNumber = page == null || page < 1 ? 1 : page.Value;
+            int pageSize = 4;
+            var listTour = tour.Tours.AsNoTracking().OrderBy(x => x.TenTour);
+            PagedList<Tour> lst = new PagedList<Tour>(listTour, pageNumber, pageSize);
+            return View(lst);
+        }
 		[Route("packages")]
 		public IActionResult Packages(int? page)
 		{
