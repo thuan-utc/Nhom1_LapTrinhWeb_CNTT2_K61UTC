@@ -57,50 +57,68 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Areas.Admin.Controllers
             return View(edTour);
         }
 
-        //public IActionResult DetailTour(int maTour)
-        //{
-        //    var tour = db.Tours.SingleOrDefault(x => x.MaTour == maTour);
-        //    var imgTour = db.AnhTours.Where(x => x.MaTour == maTour).ToList();
-        //    ViewBag.imgTour = imgTour;
-        //    return View(tour);
-        //}
+        [Route("deleteTour")]
+        [HttpGet]
+        public IActionResult DeleteTour(int maTour)
+        {
+            var tour = db.Tours.Where(x => x.MaTour == maTour).ToList();
+            if (tour.Count() > 0)
+            {
+                return RedirectToAction("ListTour", "admin");
+            }
+            var anhTour = db.AnhTours.Where(x => x.MaTour == maTour).ToList();
+            if (anhTour.Any()) db.RemoveRange(anhTour);
+            db.Remove(db.Tours.Find(maTour));
+            db.SaveChanges();
+            return RedirectToAction("ListTour", "admin");
+        }
 
         [Route("listCooperator")]
         [HttpGet]
-        public IActionResult ListCooperator(Tour tour)
+        public IActionResult ListCooperator()
         {
             var lstCooperator = db.DaiLies.ToList();
             return View(lstCooperator);
         }
 
-        //[Route("editCooperator")]
-        //[HttpGet]
-        //public IActionResult EditCooperator(string maDaily)
-        //{
-        //    ViewBag.MaNv = new SelectList(db.NhanViens.ToList(), "MaNv", "MaNv");
-        //    var tour = db.Tours.Find(maDaily);
-        //    return View(tour);
-        //}
+        [Route("editCooperator")]
+        [HttpGet]
+        public IActionResult EditCooperator(int maDaily)
+        {
+            var daiLy = db.DaiLies.Find(maDaily);
+            return View(daiLy);
+        }
 
-        //[Route("editCooperator")]
-        //[HttpPost]
-        //public IActionResult EditCooperator(Tour tour)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.Entry(tour).State = EntityState.Modified;
-        //        db.SaveChanges();
-        //        return RedirectToAction("ListCooperator");
-        //    }
-        //    return View(tour);
-        //}
+        [Route("editCooperator")]
+        [HttpPost]
+        public IActionResult EditCooperator(DaiLy daiLy)
+        {
+            var dl = db.DaiLies.Find(daiLy.MaDaiLy);
+            if (ModelState.IsValid)
+            {
+                dl.MaDaiLy = daiLy.MaDaiLy;
+                dl.TenDaiLy = daiLy.TenDaiLy;
+                dl.Sdt = daiLy.Sdt;
+                dl.DiaChi = daiLy.DiaChi;
+                db.SaveChanges();
+                return RedirectToAction("ListCooperator");
+            }
+            return View(daiLy);
+        }
 
-        //public IActionResult DetailCooperator(int maDaily)
-        //{
-        //    var tour = db.Tours.SingleOrDefault(x => x.MaTour == maDaily);
-        //    var imgTour = db.AnhTours.Where(x => x.MaTour == maDaily).ToList();
-        //    ViewBag.imgTour = imgTour;
-        //    return View(tour);
-        //}
+        [Route("deleteCooperator")]
+        [HttpGet]
+        public IActionResult DeleteCooperator(int maDaily)
+        {
+            var daily = db.DaiLies.Where(x => x.MaDaiLy == maDaily).ToList();
+            if (daily.Count() > 0)
+            {
+                return RedirectToAction("ListCooperator", "admin");
+            }
+            db.Remove(db.DaiLies.Find(maDaily));
+            db.SaveChanges();
+            return RedirectToAction("ListCooperator", "admin");
+        }
+
     }
 }
