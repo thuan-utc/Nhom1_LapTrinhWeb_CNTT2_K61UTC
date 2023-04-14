@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Nhom1_LapTrinhWeb_CNTT2_K61.Models;
+using Nhom1_LapTrinhWeb_CNTT2_K61.Repository;
 using X.PagedList;
 
 namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 {
-	[Route("customer")]
+    [Route("customer")]
 	public class HomeCustomerController : Controller
 	{
 		TourManagementContext tour = new TourManagementContext();
