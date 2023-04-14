@@ -1,0 +1,183 @@
+﻿<!--
+author: W3layouts
+author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+@{
+    ViewData["Title"] = "TourDetail";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Grand Tour Travel Category Flat Bootstrap Responsive Web Template | Packages :: w3layouts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Grand Tour Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+
+    <!-- css files -->
+    <link href="../Assets/css/bootstrap.css" rel='stylesheet' type='text/css' /><!-- bootstrap css -->
+    <link href="../Assets/css/style.css" rel='stylesheet' type='text/css' /><!-- custom css -->
+    <link href="../Assets/css/font-awesome.min.css" rel="stylesheet"><!-- fontawesome css -->
+    <!-- //css files -->
+    <!-- google fonts -->
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <!-- //google fonts -->
+    <!-- Search -->
+    <!-- Icons font CSS-->
+    <link href="vendor/mdi-font/../Assets/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/../Assets/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="../Assets/css/search.css" rel="stylesheet" media="all">
+    <!-- Search -->
+</head>
+<body>
+
+    @await Html.PartialAsync("PartialHeaderCustomer")
+
+
+    <section class="banner_inner" id="home">
+        <div class="banner_inner_overlay">
+        </div>
+    </section>
+    <!-- </div> -->
+    <!-- //Search -->
+    <!-- tour packages -->
+    <section class="packages pt-5">
+        <div class="container py-lg-4 py-sm-3 col-md-9">
+            <h2 class="heading text-capitalize text-center"> Discover our tour packages</h2>
+            <p class="text mt-2 mb-5 text-center">Vestibulum tellus neque, sodales vel mauris at, rhoncus finibus augue. Vestibulum urna ligula, molestie at ante ut, finibus vulputate felis.</p>
+            <div class="row">
+
+                <section class="product-details spad">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="product__details__pic">
+                                    <div class="product__details__pic__item">
+                                        <img class="product__details__pic__item--large"
+                                             src="@Url.Content("~/Media/ImagesTour/"+Model.AnhTour +".jpg")" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 col-md-5" style="float: right;">
+                                <div class="product__details__text">
+                                    <h3>@Model.TenTour</h3>
+                                    <div class="product__details__rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half-o"></i>
+                                        <span>(18 reviews)</span>
+                                    </div>
+                                    <div class="product__details__price"> @Model.Gia</div>
+                                    <p>@Model.ChiTietLt</p>
+                                    <div class="product__details__quantity">
+                                        <div class="quantity">
+                                            <div class="pro-qty">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                                    <ul>
+                                        <li><b>Nơi khởi hành </b> <span>@Model.NoiKhoiHanh</span></li>
+                                        <li><b>From:</b> <span>@Model.NgayBd</span></li>
+                                        <li><b>To:</b> <span>@Model.NgayKt</span></li>
+                                        <li>
+
+                                            <div class="share">
+                                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                                <a href="#"><i class="fa fa-pinterest"></i></a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a asp-controller="HomeCustomer" asp-action="Booking" asp-route-tourId="@ViewBag.sanpham.MaTour" asp-route-tourName="@ViewBag.sanpham.TenTour" asp-route-tourImage="@ViewData["TourImage"]"><button class="btn btn-primary">Book Now</button></a>
+
+
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="product__details__tab">
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
+                                               aria-selected="true">Description</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
+                                               aria-selected="false">Information</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
+                                               aria-selected="false">Reviews <span>(1)</span></a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                                            <div class="product__details__tab__desc">
+                                                <h6>Products Infomation</h6>
+                                                <p>@Model.TenTour</p>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane" id="tabs-2" role="tabpanel">
+                                            <div class="product__details__tab__desc">
+                                                <h6>Products Infomation</h6>
+                                                <p>@Model.ChiTietLt</p>
+                                                <p>@Model.ChiTietLt</p>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane" id="tabs-3" role="tabpanel">
+                                            <div class="product__details__tab__desc">
+                                                <h6>Products Infomation</h6>
+                                                <p>@Model.ChiTietLt</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+
+            </div>
+        </div>
+    </section>
+    <!-- tour packages -->
+    @await Html.PartialAsync("PartialFooterCustomer")
+</body>
+</html>
+
+
+
+
+
+
+
+
