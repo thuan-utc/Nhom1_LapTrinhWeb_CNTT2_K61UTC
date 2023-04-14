@@ -60,7 +60,6 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Areas.Cooperator.Controllers
         [ValidateAntiForgeryToken]
         [Route("addtour")]
         [HttpPost]
-        
         public IActionResult AddTour(Tour tour)
         {
             if (ModelState.IsValid)
@@ -211,7 +210,30 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Areas.Cooperator.Controllers
             return View(lstbill);
         }
 
-        
+        [Route("addbill")]
+        [HttpGet]
+        public IActionResult AddBill()
+        {
+            ViewBag.MaDaiLy = new SelectList(Tourdb.DaiLies.ToList(), "MaDaiLy", "TenDaiLy");
+            ViewBag.MaKh = new SelectList(Tourdb.KhachHangs, "MaKh", "TenKh");
+            ViewBag.MaTour = new SelectList(Tourdb.Tours, "MaTour", "TenTour");
+            return View();
+        }
+
+        [ValidateAntiForgeryToken]
+        [Route("addbill")]
+        [HttpPost]
+        public IActionResult AddBill(HoaDon hd)
+        {
+            if (ModelState.IsValid)
+            {
+                Tourdb.HoaDons.Add(hd);
+                Tourdb.SaveChanges();
+                return RedirectToAction("listbill");
+            }
+            return View(hd);
+        }
+
 
 
 
@@ -238,11 +260,7 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Areas.Cooperator.Controllers
             }
 
             // Xóa các đối tượng dựa trên các mã tương ứng và lưu thay đổi
-            var hd = Tourdb.HoaDons.Find(mahd);
-            if (hd != null)
-            {
-                Tourdb.Remove(hd);
-            }
+          
             var tour = Tourdb.Tours.Find(matr);
             if (tour != null)
             {
@@ -257,6 +275,11 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Areas.Cooperator.Controllers
             if (dl != null)
             {
                 Tourdb.Remove(dl);
+            }
+            var hd = Tourdb.HoaDons.Find(mahd);
+            if (hd != null)
+            {
+                Tourdb.Remove(hd);
             }
 
             Tourdb.SaveChanges();
