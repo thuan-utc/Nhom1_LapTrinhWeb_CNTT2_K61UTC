@@ -1,6 +1,7 @@
-﻿@{
+﻿
+@{
     ViewData["Title"] = "TourSingapore";
-    Layout = "_LayoutHomeCustomer";
+    Layout = "~/Views/Shared/_LayoutHomeCustomer.cshtml";
 }
 @using X.PagedList.Mvc.Core
 @model X.PagedList.IPagedList<Tour>
@@ -16,3 +17,4 @@
     PageClasses = new List<String> {"page-link"}
     })
 </div>
+

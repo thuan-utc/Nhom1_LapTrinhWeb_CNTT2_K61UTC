@@ -139,9 +139,22 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 			return View(pagedTours);
 		}
 
+        [Route("aboutUs")]
+        public IActionResult AboutUs()
+		{
+			return View();
+		}
 
+        [Route("contact")]
+        public IActionResult Contact()
+        {
+            return View();
+        }
 
-
-
-	}
+        [Route("services")]
+        public IActionResult Service()
+        {
+            return View();
+        }
+    }
 }
