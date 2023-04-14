@@ -1,0 +1,45 @@
+﻿@model Nhom1_LapTrinhWeb_CNTT2_K61.Models.DaiLy
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "EditCooperator";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Chỉnh sửa thông tin Tour</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="EditCooperator">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MaDaiLy" />
+            <div class="form-group">
+                <label asp-for="MaDaiLy" class="control-label"></label>
+                <input asp-for="MaDaiLy" class="form-control" />
+                <span asp-validation-for="MaDaiLy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenDaiLy" class="control-label"></label>
+                <input asp-for="TenDaiLy" class="form-control" />
+                <span asp-validation-for="TenDaiLy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sdt" class="control-label"></label>
+                <input asp-for="Sdt" class="form-control" />
+                <span asp-validation-for="Sdt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DiaChi" class="control-label"></label>
+                <input asp-for="DiaChi" class="form-control" />
+                <span asp-validation-for="DiaChi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="ListTour">Back to List</a>
+</div>
+
