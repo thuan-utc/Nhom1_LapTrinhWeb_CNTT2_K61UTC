@@ -79,18 +79,17 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 
 		public IActionResult TourDetail(int matour)
 		{
-			var tourDetails = (from t in tour.Tours
-							   join ct in tour.Cttours on t.MaTour equals ct.MaTour
+			var tourDetails = (from t in tourDb.Tours
+							   join ct in tourDb.Cttours on t.MaTour equals ct.MaTour
 							   where t.MaTour.Equals(matour)
 							   select new { Tour = t, Cttour = ct }).ToList();
 			ViewBag.TourDetails = tourDetails;
-			return View();
 			var sanpham = tourDb.Tours.SingleOrDefault(x => x.MaTour == matour);
 			if (sanpham == null)
 			{
 				return NotFound();
 			}
-
+			return View();
 		}
 		[Route("booking")]
 		public IActionResult Booking(int tourId)
