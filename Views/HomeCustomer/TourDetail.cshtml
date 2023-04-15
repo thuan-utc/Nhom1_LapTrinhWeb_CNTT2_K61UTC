@@ -5,171 +5,254 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 @{
-    ViewData["Title"] = "TourDetail";
-    Layout = null;
+	ViewData["Title"] = "TourDetail";
+	Layout = null;
+
 }
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Grand Tour Travel Category Flat Bootstrap Responsive Web Template | Packages :: w3layouts</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8">
-    <meta name="keywords" content="Grand Tour Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+	<title>Grand Tour Travel Category Flat Bootstrap Responsive Web Template | Packages :: w3layouts</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta name="keywords" content="Grand Tour Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 
-    <script>
-        addEventListener("load", function () {
-            setTimeout(hideURLbar, 0);
-        }, false);
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
 
-        function hideURLbar() {
-            window.scrollTo(0, 1);
-        }
-    </script>
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
 
-    <!-- css files -->
-    <link href="../Assets/css/bootstrap.css" rel='stylesheet' type='text/css' /><!-- bootstrap css -->
-    <link href="../Assets/css/style.css" rel='stylesheet' type='text/css' /><!-- custom css -->
-    <link href="../Assets/css/font-awesome.min.css" rel="stylesheet"><!-- fontawesome css -->
-    <!-- //css files -->
-    <!-- google fonts -->
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
-    <link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <!-- //google fonts -->
-    <!-- Search -->
-    <!-- Icons font CSS-->
-    <link href="vendor/mdi-font/../Assets/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-4.7/../Assets/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <!-- Font special for pages-->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+	<!-- css files -->
+	<link href="../Assets/css/bootstrap.css" rel='stylesheet' type='text/css' /><!-- bootstrap css -->
+	<link href="../Assets/css/style.css" rel='stylesheet' type='text/css' /><!-- custom css -->
+	<link href="../Assets/css/font-awesome.min.css" rel="stylesheet"><!-- fontawesome css -->
+	<!-- //css files -->
+	<!-- google fonts -->
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+	<!-- //google fonts -->
+	<!-- Search -->
+	<!-- Icons font CSS-->
+	<link href="vendor/mdi-font/../Assets/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+	<link href="vendor/font-awesome-4.7/../Assets/css/font-awesome.min.css" rel="stylesheet" media="all">
+	<!-- Font special for pages-->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
 
-    <!-- Vendor CSS-->
-    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+	<!-- Vendor CSS-->
+	<link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+	<link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
 
-    <!-- Main CSS-->
-    <link href="../Assets/css/search.css" rel="stylesheet" media="all">
-    <!-- Search -->
+	<!-- Main CSS-->
+	<link href="../Assets/css/search.css" rel="stylesheet" media="all">
+	<!-- Search -->
+	<style>
+		.product__details__tab__desc ul {
+			display: flex;
+			flex-wrap: wrap;
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		.product__details__tab__desc li {
+			width: calc(100% / 3);
+			box-sizing: border-box;
+			padding: 10px;
+			text-align: center;
+			border: 1px solid #ccc;
+		}
+
+			.product__details__tab__desc li span {
+				font-weight: bold;
+			}
+
+		.description {
+			text-align: center;
+			font-weight: bold;
+		}
+	</style>
+
+
+
 </head>
 <body>
 
-    @await Html.PartialAsync("PartialHeaderCustomer")
+	@await Html.PartialAsync("PartialHeaderCustomer")
+	<section class="banner_inner" id="home">
+		<div class="banner_inner_overlay">
+		</div>
+	</section>
 
-    <section class="banner_inner" id="home">
-        <div class="banner_inner_overlay">
-        </div>
-    </section>
-    <!-- </div> -->
-    <!-- //Search -->
-    <!-- tour packages -->
-    <section class="packages pt-5">
-        <div class="container py-lg-4 py-sm-3 col-md-9">
-            <h2 class="heading text-capitalize text-center"> Discover our tour packages</h2>
-            <p class="text mt-2 mb-5 text-center">Vestibulum tellus neque, sodales vel mauris at, rhoncus finibus augue. Vestibulum urna ligula, molestie at ante ut, finibus vulputate felis.</p>
-            <div class="row">
+	<!-- </div> -->
+	<!-- //Search -->
+	<!-- tour packages -->
+	<section class="packages pt-5">
+		<div class="container py-lg-4 py-sm-3 col-md-9">
+			<h2 class="heading text-capitalize text-center"> Discover our tour packages</h2>
+			<p class="text mt-2 mb-5 text-center">Every now and then go away, have a little relaxation, for when you come back to your work your judgment will be surer. Go some distance away because then the work appears smaller and more of it can be taken in at a glance and a lack of harmony and proportion is more readily seen.<br> – Leonardo da Vinci.</p>
+			<div class="row">
+				@foreach (var tourDetail in ViewBag.TourDetails)
+				{
 
-                <section class="product-details spad">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6">
-                                <div class="product__details__pic">
-                                    <div class="product__details__pic__item">
-                                        <img class="product__details__pic__item--large"
-                                             src="@Url.Content("~/Media/ImagesTour/"+Model.AnhTour +".jpg")" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-5 col-md-5" style="float: right;">
-                                <div class="product__details__text">
-                                    <h3>@Model.TenTour</h3>
-                                    <div class="product__details__rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-o"></i>
-                                        <span>(18 reviews)</span>
-                                    </div>
-                                    <div class="product__details__price"> @Model.Gia</div>
-                                    <p>@Model.ChiTietLt</p>
-                                    <div class="product__details__quantity">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
-                                    <ul>
-                                        <li><b>Nơi khởi hành </b> <span>@Model.NoiKhoiHanh</span></li>
-                                        <li><b>From:</b> <span>@Model.NgayBd</span></li>
-                                        <li><b>To:</b> <span>@Model.NgayKt</span></li>
-                                        <li>
+					<section class="product-details spad">
+						<div class="container">
+							<div class="row">
+								<div class="col-lg-6 col-md-6">
+									<div class="product__details__pic">
+										<div class="product__details__pic__item">
+											<img class="product__details__pic__item--large"
+											 src="@Url.Content("~/Media/ImagesTour/"+tourDetail.Tour.AnhTour +".jpg")" alt="">
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-5 col-md-5" style="float: right;">
+									<div class="product__details__text">
+										<h3>@tourDetail.Tour.TenTour</h3>
+										<div class="product__details__rating">
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star-half-o"></i>
+											<span>(18 reviews)</span>
+										</div>
+										<div class="product__details__price"> @tourDetail.Tour.Gia</div>
 
-                                            <div class="share">
-                                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                                <a href="#"><i class="fa fa-instagram"></i></a>
-                                                <a href="#"><i class="fa fa-pinterest"></i></a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <a asp-controller="HomeCustomer" asp-action="Booking" asp-route-tourId="@ViewBag.sanpham.MaTour" asp-route-tourName="@ViewBag.sanpham.TenTour" asp-route-tourImage="@ViewData["TourImage"]"><button class="btn btn-primary">Book Now</button></a>
+										<div class="product__details__quantity">
+											<div class="quantity">
+												<div class="pro-qty">
+												</div>
+											</div>
+										</div>
+										<a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+										<ul style="font-size: 20px;">
+											<li><b>Nơi khởi hành </b> <span>@tourDetail.Tour.NoiKhoiHanh</span></li>
+											<li><b>Ngày bắt đầu :</b> <span>@tourDetail.Tour.NgayBd</span></li>
+											<li><b>Ngày kết thúc:</b> <span>@tourDetail.Tour.NgayKt</span></li>
+											<li><b>Số vé còn lại:</b> <span>@tourDetail.Tour.Sltcl</span></li>
 
+											<li>
 
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="product__details__tab">
-                                    <ul class="nav nav-tabs" role="tablist">
-                                        <li class="nav-item">
-                                            <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
-                                               aria-selected="true">Description</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
-                                               aria-selected="false">Information</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
-                                               aria-selected="false">Reviews <span>(1)</span></a>
-                                        </li>
-                                    </ul>
-                                    <div class="tab-content">
-                                        <div class="tab-pane active" id="tabs-1" role="tabpanel">
-                                            <div class="product__details__tab__desc">
-                                                <h6>Products Infomation</h6>
-                                                <p>@Model.TenTour</p>
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane" id="tabs-2" role="tabpanel">
-                                            <div class="product__details__tab__desc">
-                                                <h6>Products Infomation</h6>
-                                                <p>@Model.ChiTietLt</p>
-                                                <p>@Model.ChiTietLt</p>
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane" id="tabs-3" role="tabpanel">
-                                            <div class="product__details__tab__desc">
-                                                <h6>Products Infomation</h6>
-                                                <p>@Model.ChiTietLt</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+												<div class="share">
+													<a href="#"><i class="fa fa-facebook"></i></a>
+													<a href="#"><i class="fa fa-twitter"></i></a>
+													<a href="#"><i class="fa fa-instagram"></i></a>
+													<a href="#"><i class="fa fa-pinterest"></i></a>
+												</div>
+											</li>
+											<li>
 
 
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-lg-12">
+									<div class="product__details__tab">
+										<ul class="nav nav-tabs" role="tablist">
+											<li class="nav-item">
+												<a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
+											   aria-selected="true">Description</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
+											   aria-selected="false">Information</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
+											   aria-selected="false">Reviews <span>(1)</span></a>
+											</li>
+										</ul>
+										<div class="tab-content">
+											<div class="tab-pane active" id="tabs-1" role="tabpanel">
+												<div class="product__details__tab__desc">
+													<h2 style="text-align: center;">
+														<img src="../Assets/images/chaomung.png" alt="Hình ảnh bàn tay" style="width:5%">
+														<img src="../Assets/images/chaomung.png" alt="Hình ảnh bàn tay" style="width:5%">
+														<img src="../Assets/images/chaomung.png" alt="Hình ảnh bàn tay" style="width:5%">
+														Chào mừng bạn ghé thăm
+														<img src="../Assets/images/chaomung.png" alt="Hình ảnh bàn tay" style="width:5%">
+														<img src="../Assets/images/chaomung.png" alt="Hình ảnh bàn tay" style="width:5%">
+														<img src="../Assets/images/chaomung.png" alt="Hình ảnh bàn tay" style="width:5%">
+													</h2>
 
-            </div>
-        </div>
-    </section>
-    <!-- tour packages -->
-    @await Html.PartialAsync("PartialFooterCustomer")
+													<h3 class="description"> @tourDetail.Tour.TenTour</h3>
+												</div>
+											</div>
+											<div class="tab-pane" id="tabs-2" role="tabpanel">
+												<div class="product__details__tab__desc">
+													<h2 style="text-align: center; margin-top: 20px; margin-bottom: 20px; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">Additional Information</h2>
+
+
+													<ul>
+														<li>
+															<span class="fa fa-hotel mr-2" style="color: #007bff;"></span>
+															<span>Khách Sạn:</span>
+															@tourDetail.Cttour.KhachSan
+														</li>
+
+														<li>
+															<span class="fa fa-car mr-2" style="color: #007bff;"></span>
+															<span>Phương Tiện:</span>
+															@tourDetail.Cttour.PhuongTien
+														</li>
+
+														<li>
+															<span class="fa fa-cutlery mr-2" style="color: #007bff;"></span>
+															<span>Ẩm Thực:</span>
+															@tourDetail.Cttour.AmThuc
+														</li>
+														<li>
+															<span class="fa fa-clock-o mr-2" style="color: #007bff;"></span>
+															<span>Thời Gian:</span>
+															@tourDetail.Cttour.ThoiGian
+														</li>
+
+														<li>
+															<span class="fa fa-users mr-2" style="color: #007bff;"></span>
+															<span>Đối tượng Tham gia :</span>
+															@tourDetail.Cttour.DoiTuongTh
+														</li>
+
+														<li>
+															<span class="fa fa-gift mr-2" style="color: #007bff;"></span>
+															<span>Lịch Trình:</span>
+															@tourDetail.Tour.ChiTietLt
+														</li>
+
+													</ul>
+												</div>
+											</div>
+
+											<div class="tab-pane" id="tabs-3" role="tabpanel">
+												<div class="product__details__tab__desc">
+													<p style="text-align: center; font-family: Times, serif; font-size: 22px;">
+														<i class="fa fa-heart" style="color: red;"></i> Xuất sắc luôn ạ !!! <i class="fa fa-heart" style="color: red;"></i>
+													</p>
+
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+				}
+
+			</div>
+		</div>
+	</section>
+	<!-- tour packages -->
+	@await Html.PartialAsync("PartialFooterCustomer")
 </body>
 </html>
 

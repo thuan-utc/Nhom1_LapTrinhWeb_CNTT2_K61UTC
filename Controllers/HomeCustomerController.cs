@@ -84,11 +84,6 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 							   where t.MaTour.Equals(matour)
 							   select new { Tour = t, Cttour = ct }).ToList();
 			ViewBag.TourDetails = tourDetails;
-			var sanpham = tourDb.Tours.SingleOrDefault(x => x.MaTour == matour);
-			if (sanpham == null)
-			{
-				return NotFound();
-			}
 			return View();
 		}
 		[Route("booking")]
