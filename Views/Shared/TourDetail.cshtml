@@ -7,6 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 @{
 	ViewData["Title"] = "TourDetail";
 	Layout = null;
+	
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -50,10 +51,43 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- Main CSS-->
 	<link href="../Assets/css/search.css" rel="stylesheet" media="all">
 	<!-- Search -->
+	<style>
+		.product__details__tab__desc ul {
+			display: flex;
+			flex-wrap: wrap;
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		.product__details__tab__desc li {
+			width: calc(100% / 3);
+			box-sizing: border-box;
+			padding: 10px;
+			text-align: center;
+			border: 1px solid #ccc;
+		}
+
+			.product__details__tab__desc li span {
+				font-weight: bold;
+			}
+
+		    .description {
+				text-align: center;font-weight: bold;
+
+			}
+	</style>
+
+	
+
 </head>
 <body>
 
 		@await Html.PartialAsync("PartialHeaderCustomer")
+	<section class="banner_inner" id="home">
+		<div class="banner_inner_overlay">
+		</div>
+	</section>
 	
 	<!-- </div> -->
 	<!-- //Search -->
@@ -61,9 +95,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<section class="packages pt-5">
 		<div class="container py-lg-4 py-sm-3 col-md-9">
 			<h2 class="heading text-capitalize text-center"> Discover our tour packages</h2>
-			<p class="text mt-2 mb-5 text-center">Vestibulum tellus neque, sodales vel mauris at, rhoncus finibus augue. Vestibulum urna ligula, molestie at ante ut, finibus vulputate felis.</p>
+			<p class="text mt-2 mb-5 text-center">Every now and then go away, have a little relaxation, for when you come back to your work your judgment will be surer. Go some distance away because then the work appears smaller and more of it can be taken in at a glance and a lack of harmony and proportion is more readily seen.<br> – Leonardo da Vinci.</p>
 			<div class="row">
-
+			@foreach (var tourDetail in ViewBag.TourDetails)
+{
+   
 				<section class="product-details spad">
 					<div class="container">
 						<div class="row">
@@ -71,13 +107,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="product__details__pic">
 									<div class="product__details__pic__item">
 										<img class="product__details__pic__item--large"
-											 src="@Url.Content("~/Media/ImagesTour/"+Model.AnhTour +".jpg")" alt="">
+											 src="@Url.Content("~/Media/ImagesTour/"+tourDetail.Tour.AnhTour +".jpg")" alt="">
 									</div>
 								</div>
 							</div>
 							<div class="col-lg-5 col-md-5" style="float: right;">
 								<div class="product__details__text">
-									<h3>@Model.TenTour</h3>
+										<h3>@tourDetail.Tour.TenTour</h3>
 									<div class="product__details__rating">
 										<i class="fa fa-star"></i>
 										<i class="fa fa-star"></i>
@@ -86,8 +122,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<i class="fa fa-star-half-o"></i>
 										<span>(18 reviews)</span>
 									</div>
-									<div class="product__details__price"> @Model.Gia</div>
-									<p>@Model.ChiTietLt</p>
+										<div class="product__details__price"> @tourDetail.Tour.Gia</div>
+										
 									<div class="product__details__quantity">
 										<div class="quantity">
 											<div class="pro-qty">
@@ -96,10 +132,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</div>
 									</div>
 									<a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
-									<ul>
-										<li><b>Nơi khởi hành </b> <span>@Model.NoiKhoiHanh</span></li>
-										<li><b>From:</b> <span>@Model.NgayBd</span></li>
-										<li><b>To:</b> <span>@Model.NgayKt</span></li>
+									<ul style="font-size: 20px;">
+											<li><b>Nơi khởi hành </b> <span>@tourDetail.Tour.NoiKhoiHanh</span></li>
+											<li><b>Ngày bắt đầu :</b> <span>@tourDetail.Tour.NgayBd</span></li>
+											<li><b>Ngày kết thúc:</b> <span>@tourDetail.Tour.NgayKt</span></li>
+											<li><b>Số vé còn lại:</b> <span>@tourDetail.Tour.Sltcl</span></li>
+
 										<li>
 
 											<div class="share">
@@ -110,7 +148,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											</div>
 										</li>
 										<li>
-											<a asp-controller="HomeCustomer" asp-action="Booking" asp-route-tourId="@ViewBag.sanpham.MaTour" asp-route-tourName="@ViewBag.sanpham.TenTour" asp-route-tourImage="@ViewData["TourImage"]"><button class="btn btn-primary">Book Now</button></a>
 
 
 										</li>
@@ -136,21 +173,71 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="tab-content">
 										<div class="tab-pane active" id="tabs-1" role="tabpanel">
 											<div class="product__details__tab__desc">
-												<h6>Products Infomation</h6>
-												<p>@Model.TenTour</p>
+													<h2 style="text-align: center;">
+														<img src="../Assets/images/chaomung.png" alt="Hình ảnh bàn tay" style="width:5%">
+														<img src="../Assets/images/chaomung.png" alt="Hình ảnh bàn tay" style="width:5%">
+														<img src="../Assets/images/chaomung.png" alt="Hình ảnh bàn tay" style="width:5%">
+														                  Chào mừng bạn ghé thăm 
+														<img src="../Assets/images/chaomung.png" alt="Hình ảnh bàn tay" style="width:5%">
+														<img src="../Assets/images/chaomung.png" alt="Hình ảnh bàn tay" style="width:5%">
+														<img src="../Assets/images/chaomung.png" alt="Hình ảnh bàn tay" style="width:5%">
+													</h2>
+
+													<h3 class="description"> @tourDetail.Tour.TenTour</h3>
 											</div>
 										</div>
 										<div class="tab-pane" id="tabs-2" role="tabpanel">
 											<div class="product__details__tab__desc">
-												<h6>Products Infomation</h6>
-												<p>@Model.ChiTietLt</p>
-												<p>@Model.ChiTietLt</p>
+													<h2 style="text-align: center; margin-top: 20px; margin-bottom: 20px; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">Additional Information</h2>
+
+												
+												<ul>
+													<li>
+															<span class="fa fa-hotel mr-2" style="color: #007bff;"></span>
+                                                        <span>Khách Sạn:</span>
+                                                         @tourDetail.Cttour.KhachSan
+                                                    </li>
+
+													<li>
+															<span class="fa fa-car mr-2" style="color: #007bff;"></span>
+														<span>Phương Tiện:</span>
+														@tourDetail.Cttour.PhuongTien
+													</li>
+
+													<li>
+															<span class="fa fa-cutlery mr-2" style="color: #007bff;"></span>
+                                                        <span>Ẩm Thực:</span>
+                                                        @tourDetail.Cttour.AmThuc
+                                                    </li>
+													<li>
+															<span class="fa fa-clock-o mr-2" style="color: #007bff;"></span>
+														 <span>Thời Gian:</span>
+														 @tourDetail.Cttour.ThoiGian
+													</li>
+
+													<li>
+														 <span class="fa fa-users mr-2" style="color: #007bff;"></span>
+														 <span>Đối tượng Tham gia :</span>
+														 @tourDetail.Cttour.DoiTuongTh
+													</li>
+
+													<li>
+															<span class="fa fa-gift mr-2" style="color: #007bff;"></span>
+														  <span>Lịch Trình:</span>
+														  @tourDetail.Tour.ChiTietLt
+													</li>
+
+												</ul>
 											</div>
-										</div>
+											</div>
+				
 										<div class="tab-pane" id="tabs-3" role="tabpanel">
 											<div class="product__details__tab__desc">
-												<h6>Products Infomation</h6>
-												<p>@Model.ChiTietLt</p>
+													<p style="text-align: center; font-family: Times, serif; font-size: 22px;">
+														<i class="fa fa-heart" style="color: red;"></i> Xuất sắc luôn ạ !!! <i class="fa fa-heart" style="color: red;"></i>
+													</p>
+
+
 											</div>
 										</div>
 									</div>
@@ -160,7 +247,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</section>
 
-
+}
 
 			</div>
 		</div>
