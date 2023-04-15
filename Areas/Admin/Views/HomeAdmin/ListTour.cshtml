@@ -57,9 +57,12 @@
                                     }
                                 </td>
                                 <td>
-                                    <button asp-action="EditTour" asp-route-maTour="@item.MaTour">Edit</button> 
-                                    <button asp-action="Details" asp-route-id="@item.MaTour">Details</button> 
-                                    <button asp-action="Delete" asp-route-id="@item.MaTour">Delete</button>
+                                    <button class="btn-edit">
+                                        <a asp-action="EditTour" asp-route-maTour="@item.MaTour">Edit</a>
+                                    </button> 
+                                    <button class="btn-delete">
+                                        <a asp-action="DeleteTour" asp-route-maTour="@item.MaTour">Delete</a>
+                                    </button>
                                 </td>
                             </tr>
                         }
@@ -69,3 +72,142 @@
         </div>
     </div>
 </div>
+
+<style>
+    .btn-delete {
+        display: inline-block;
+        transition: all 0.2s ease-in;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        color: #090909;
+        padding: 0.3em 1em;
+        font-size: 12px;
+        border-radius: 0.5em;
+        background: #e8e8e8;
+        border: 1px solid #e8e8e8;
+        box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+    }
+
+        .btn-delete:active {
+            color: #666;
+            box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+        }
+
+        .btn-delete:before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%) scaleY(1) scaleX(1.25);
+            top: 100%;
+            width: 140%;
+            height: 180%;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 50%;
+            display: block;
+            transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+            z-index: -1;
+        }
+
+        .btn-delete:after {
+            content: "";
+            position: absolute;
+            left: 55%;
+            transform: translateX(-50%) scaleY(1) scaleX(1.45);
+            top: 180%;
+            width: 160%;
+            height: 190%;
+            background-color: #EA5455;
+            border-radius: 50%;
+            display: block;
+            transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+            z-index: -1;
+        }
+
+        .btn-delete:hover {
+            color: #ffffff;
+            border: 1px solid #EA5455;
+        }
+
+            .btn-delete:hover:before {
+                top: -35%;
+                background-color: #EA5455;
+                transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+            }
+
+            .btn-delete:hover:after {
+                top: -45%;
+                background-color: #EA5455;
+                transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+            }
+
+
+    .btn-edit {
+        display: inline-block;
+        transition: all 0.2s ease-in;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        color: #090909;
+        padding: 0.3em 1em;
+        font-size: 18px;
+        border-radius: 0.5em;
+        background: #e8e8e8;
+        border: 1px solid #e8e8e8;
+        box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+    }
+
+        .btn-edit:active {
+            color: #666;
+            box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+        }
+
+        .btn-edit:before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%) scaleY(1) scaleX(1.25);
+            top: 100%;
+            width: 140%;
+            height: 180%;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 50%;
+            display: block;
+            transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+            z-index: -1;
+        }
+
+        .btn-edit:after {
+            content: "";
+            position: absolute;
+            left: 55%;
+            transform: translateX(-50%) scaleY(1) scaleX(1.45);
+            top: 180%;
+            width: 160%;
+            height: 190%;
+            background-color: #F7DB6A;
+            border-radius: 50%;
+            display: block;
+            transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+            z-index: -1;
+        }
+
+        .btn-edit:hover {
+            color: #ffffff;
+            border: 1px solid #F7DB6A;
+        }
+
+            .btn-edit:hover:before {
+                top: -35%;
+                background-color: #F7DB6A;
+                transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+            }
+
+            .btn-edit:hover:after {
+                top: -45%;
+                background-color: #F7DB6A;
+                transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+            }
+
+
+</style>

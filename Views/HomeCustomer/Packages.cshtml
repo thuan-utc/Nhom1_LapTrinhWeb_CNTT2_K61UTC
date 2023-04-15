@@ -4,3 +4,21 @@
     Layout = "~/Views/Shared/_LayoutHomeCustomer.cshtml";
 }
 
+@using X.PagedList.Mvc.Core
+@model X.PagedList.IPagedList<Tour>
+
+@foreach (var item in Model)
+{
+    if (item.IsDeleted == 0)
+    {
+        @await Html.PartialAsync("_PartialTour", item)
+
+    }
+}
+
+<div style="margin: 0 auto">
+    @Html.PagedListPager(Model,page => Url.Action("Index", new {page=page}),new X.PagedList.Web.Common.PagedListRenderOptions(){
+    LiElementClasses = new List<String> {"page-item"},
+    PageClasses = new List<String> {"page-link"}
+    })
+</div>
