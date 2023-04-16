@@ -116,19 +116,29 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 
 		[Route("booking")]
 		[HttpPost]
-		public IActionResult Booking(int tourId, int numTickets)
+        public IActionResult Booking([FromForm] BookingModel bookingModel, int tourId)
         {
-            if (numTickets <= 0) return BadRequest();
-			Tour? tour = tourDb.Tours.Find(tourId);
-			DaiLy daiLy = tourDb.DaiLies;
-			if (tour == null) return BadRequest();
-            KhachHang kh = getCurrentUser();
-			HoaDon hd = new HoaDon();
-			hd.MaKh = kh.MaKh;
-			hd.MaTour = tour.MaTour;
-
+            if (bookingModel.SoVe <= 0)
+            {
+                return BadRequest();
+            }
+            var tour = tourDb.Tours.SingleOrDefault(t => t.MaTour == tourId);
+            if (tour == null)
+            {
+                return BadRequest();
+            }
+            var kh = getCurrentUser();
+            var hd = new HoaDon
+            {
+                MaKh = kh.MaKh,
+                MaTour = tour.MaTour,
+                MaDaiLy = tour.MaDaiLy
+            };
+            tourDb.HoaDons.Add(hd);
+            tourDb.SaveChanges();
             return View();
         }
+
 
         private KhachHang getCurrentUser()
         {

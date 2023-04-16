@@ -20,4 +20,6 @@ public partial class DaiLy
     public virtual ICollection<NhanVien> NhanViens { get; } = new List<NhanVien>();
 
     public virtual ICollection<TaiKhoan> TaiKhoans { get; } = new List<TaiKhoan>();
+
+    public virtual ICollection<Tour> Tours { get; } = new List<Tour>();
 }

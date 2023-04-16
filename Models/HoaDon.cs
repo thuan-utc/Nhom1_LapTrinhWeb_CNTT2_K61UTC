@@ -17,6 +17,8 @@ public partial class HoaDon
 
     public int? IsDeleted { get; set; }
 
+    public DateTime CreatedDate { get; set; }
+
     public virtual ICollection<Cthd> Cthds { get; } = new List<Cthd>();
 
     public virtual DaiLy? MaDaiLyNavigation { get; set; }

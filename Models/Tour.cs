@@ -33,9 +33,13 @@ public partial class Tour
 
     public int? MaQg { get; set; }
 
+    public int? MaDaiLy { get; set; }
+
     public virtual ICollection<Cttour> Cttours { get; } = new List<Cttour>();
 
     public virtual ICollection<HoaDon> HoaDons { get; } = new List<HoaDon>();
+
+    public virtual DaiLy? MaDaiLyNavigation { get; set; }
 
     public virtual NhanVien? MaNvNavigation { get; set; }
 

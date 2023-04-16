@@ -1,7 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Booking";
     Layout = null;
-    Double gia = (Double)@ViewBag.tourDetail[0].Gia / 1000000;
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +40,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="contact-grids">
                 <div class="row">
                     <div class="col-lg-7 contact-left-form">
-                        <form action="" method="post" class="row">
+                        <form asp-controller="HomeCustomer" asp-action="Booking" asp-route-tourId="@ViewBag.tourDetail[0].MaTour" method="post" class="row">
                             <div class="col-sm-6 form-group contact-forms">
                                 <label for="name">Name:</label>
                                 <input type="text" id="name" class="form-control" readonly value="@ViewBag.khachHang.TenKh" required="">
@@ -51,8 +50,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <input type="text" id="phone" class="form-control" readonly value="@ViewBag.khachHang.Sdt" required="">
                             </div>
                             <div class="col-sm-6 form-group contact-forms">
-                                <label for="numTickets">Number of Tickets:</label>
-                                <input type="number" id="numTickets" class="form-control" name="numTickets" min="0" max="10" value="0" onchange="calculateTotal()">
+                                <label for="SoVe">Number of Tickets:</label>
+                                <input for="SoVe" type="number" id="SoVe" name="SoVe" class="form-control" min="0" max="100" value="0" onchange="calculateTotal()">
 
                             </div>
                             <div class="col-sm-6 form-group contact-forms">
@@ -71,6 +70,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="image-tour position-relative">
                             @{
                                 String anhTour = "../Media/ImagesTour/" + ViewBag.tourDetail[0].AnhTour + ".jpg";
+                                Double gia = (Double)@ViewBag.tourDetail[0].Gia / 1000000;
                             }
                             <img src=@anhTour alt="Tour Image" class="img-fluid">
                             <p><span class="fa fa-tags"></span> <span>20$ - 15% off</span></p>

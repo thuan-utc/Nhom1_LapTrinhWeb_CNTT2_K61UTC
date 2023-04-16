@@ -31,6 +31,7 @@ create table NhanVien(
 create table Tour(
 	MaTour int identity not null primary key,
 	MaNV int ,
+	MaDaiLy int,
 	TenTour nvarchar(30) not null,
 	Diadiem nvarchar(50) not null,
 	ChiTietLT nvarchar(500) not null,
@@ -42,6 +43,7 @@ create table Tour(
 	Active int default 0,
 	isDeleted int default 0,
 	constraint fk_Tour_NhanVien foreign key (MaNV) references NhanVien(MaNV),
+	constraint fk_Tour_DaiLy foreign key (MaDaiLy) references NhanVien(MaDaiLy),
 )
 create table HoaDon(
 	MaHD int identity primary key not null,
@@ -50,6 +52,7 @@ create table HoaDon(
 	MaKH int ,
 	TongTien money ,
 	isDeleted int default 0,
+	CreatedDate DATETIME DEFAULT GETDATE(),
 	constraint fk_HoaDon_DaiLy foreign key (MaDaiLy) references DaiLy(MaDaiLy), 
 	constraint fk_HoaDon_Tour foreign key (MaTour) references Tour(MaTour), 
 	constraint fk_HoaDon_KhachHang foreign key (MaKH) references KhachHang(MaKH) 

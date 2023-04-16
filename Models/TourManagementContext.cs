@@ -127,6 +127,9 @@ public partial class TourManagementContext : DbContext
             entity.ToTable("HoaDon");
 
             entity.Property(e => e.MaHd).HasColumnName("MaHD");
+            entity.Property(e => e.CreatedDate)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
             entity.Property(e => e.IsDeleted)
                 .HasDefaultValueSql("((0))")
                 .HasColumnName("isDeleted");
@@ -258,6 +261,10 @@ public partial class TourManagementContext : DbContext
             entity.Property(e => e.NoiKhoiHanh).HasMaxLength(100);
             entity.Property(e => e.Sltcl).HasColumnName("SLTCL");
             entity.Property(e => e.TenTour).HasMaxLength(300);
+
+            entity.HasOne(d => d.MaDaiLyNavigation).WithMany(p => p.Tours)
+                .HasForeignKey(d => d.MaDaiLy)
+                .HasConstraintName("fk_Tour_DaiLy");
 
             entity.HasOne(d => d.MaNvNavigation).WithMany(p => p.Tours)
                 .HasForeignKey(d => d.MaNv)
