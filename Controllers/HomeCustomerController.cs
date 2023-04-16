@@ -107,7 +107,8 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 								   ct.UuDai,
 								   t.AnhTour,
 								   t.NgayBd,
-								   t.NgayKt
+								   t.NgayKt,
+								   t.Sltcl
 							   }).ToList();	
 			ViewBag.tourDetail = tourDetail;
 			ViewBag.khachHang = getCurrentUser();
@@ -116,9 +117,9 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 
 		[Route("booking")]
 		[HttpPost]
-        public IActionResult Booking([FromForm] BookingModel bookingModel, int tourId)
+        public IActionResult Booking(int soVe, int tourId)
         {
-            if (bookingModel.SoVe <= 0)
+            if (soVe <= 0)
             {
                 return BadRequest();
             }
@@ -136,7 +137,11 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
             };
             tourDb.HoaDons.Add(hd);
             tourDb.SaveChanges();
-            return View();
+			ViewBag.tenTour = tour.TenTour;
+			ViewBag.ngayBd = tour.NgayBd;
+			ViewBag.soVe = soVe;
+			ViewBag.tongTien = 1000;
+            return View("BookSuccessFully");
         }
 
 

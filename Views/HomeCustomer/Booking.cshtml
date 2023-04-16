@@ -50,8 +50,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <input type="text" id="phone" class="form-control" readonly value="@ViewBag.khachHang.Sdt" required="">
                             </div>
                             <div class="col-sm-6 form-group contact-forms">
-                                <label for="SoVe">Number of Tickets:</label>
-                                <input for="SoVe" type="number" id="SoVe" name="SoVe" class="form-control" min="0" max="100" value="0" onchange="calculateTotal()">
+                                <label for="soVe">Number of Tickets:</label>
+                                <input for="soVe" type="number" id="soVe" name="soVe" class="form-control" min="1" max="@ViewBag.tourDetail[0].Sltcl" value="0" onchange="calculateTotal()">
 
                             </div>
                             <div class="col-sm-6 form-group contact-forms">
