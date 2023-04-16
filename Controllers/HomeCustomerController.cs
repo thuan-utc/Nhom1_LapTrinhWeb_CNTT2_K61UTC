@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Nhom1_LapTrinhWeb_CNTT2_K61.Models;
 using Nhom1_LapTrinhWeb_CNTT2_K61.Repository;
+using NuGet.Versioning;
 using X.PagedList;
 
 namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
@@ -118,7 +119,14 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 		public IActionResult Booking(int tourId, int numTickets)
         {
             if (numTickets <= 0) return BadRequest();
-            getCurrentUser();
+			Tour? tour = tourDb.Tours.Find(tourId);
+			DaiLy daiLy = tourDb.DaiLies;
+			if (tour == null) return BadRequest();
+            KhachHang kh = getCurrentUser();
+			HoaDon hd = new HoaDon();
+			hd.MaKh = kh.MaKh;
+			hd.MaTour = tour.MaTour;
+
             return View();
         }
 
