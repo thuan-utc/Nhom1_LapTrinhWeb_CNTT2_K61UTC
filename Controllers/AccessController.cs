@@ -38,8 +38,9 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 					}
 				}
 			}
-			return View();
-		}
+            ModelState.AddModelError(string.Empty, "Invalid username or password");
+            return View(user);
+        }
 		[HttpGet]
 		public IActionResult Logout()
 		{
@@ -49,37 +50,36 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 		}
 
 		//Dang ky
-		[HttpGet]
-		public IActionResult SignUp()
-		{
-			return View();
-		}
+		//[HttpGet]
+		//public IActionResult SignUp()
+		//{
+		//	return View();
+		//}
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]
 
 		public IActionResult SignUp(TaiKhoan user)
 		{
-			if (ModelState.IsValid)
-			{
-				// Kiểm tra xem tài khoản đã tồn tại chưa
-				var u = db.TaiKhoans.Where(x => x.Taikhoan1.Equals(user.Taikhoan1)).FirstOrDefault();
-				if (u != null)
-				{
-					ModelState.AddModelError("TaiKhoan", "Tài khoản đã được sử dụng");
-					return View(user);
-				}
+            //if (ModelState.IsValid)
+            //{
 
-				// Thêm người dùng mới vào cơ sở dữ liệu
-				db.TaiKhoans.Add(user);
-				db.SaveChanges();
+            //}
+            // Kiểm tra xem tài khoản đã tồn tại chưa
+            var u = db.TaiKhoans.Where(x => x.Taikhoan1.Equals(user.Taikhoan1)).FirstOrDefault();
+            if (u != null)
+            {
+                ModelState.AddModelError("TaiKhoan", "Tài khoản đã được sử dụng");
+                return RedirectToAction("Login", "Access");
+            }
 
-				// Đăng nhập người dùng mới đăng ký
-				HttpContext.Session.SetString("TaiKhoan", user.Taikhoan1);
-				return RedirectToAction("Login", "Access");
-			}
+            // Thêm người dùng mới vào cơ sở dữ liệu
+            db.TaiKhoans.Add(user);
+            db.SaveChanges();
 
-			return View(user);
-		}
+            // Đăng nhập người dùng mới đăng ký
+            //HttpContext.Session.SetString("TaiKhoan", user.Taikhoan1);
+            return RedirectToAction("Login", "Access");
+        }
 	}
 }

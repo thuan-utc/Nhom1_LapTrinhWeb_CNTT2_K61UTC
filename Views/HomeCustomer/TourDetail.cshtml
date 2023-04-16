@@ -97,7 +97,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<h2 class="heading text-capitalize text-center"> Discover our tour packages</h2>
 			<p class="text mt-2 mb-5 text-center">Every now and then go away, have a little relaxation, for when you come back to your work your judgment will be surer. Go some distance away because then the work appears smaller and more of it can be taken in at a glance and a lack of harmony and proportion is more readily seen.<br> – Leonardo da Vinci.</p>
 			<div class="row">
-				@foreach (var tourDetail in ViewBag.TourDetails)
+				@foreach (var tourDetail in ViewBag.TourDetail)
 				{
 
 					<section class="product-details spad">
@@ -136,9 +136,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<li><b>Ngày bắt đầu :</b> <span>@tourDetail.Tour.NgayBd</span></li>
 											<li><b>Ngày kết thúc:</b> <span>@tourDetail.Tour.NgayKt</span></li>
 											<li><b>Số vé còn lại:</b> <span>@tourDetail.Tour.Sltcl</span></li>
-
 											<li>
-
 												<div class="share">
 													<a href="#"><i class="fa fa-facebook"></i></a>
 													<a href="#"><i class="fa fa-twitter"></i></a>
@@ -147,10 +145,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												</div>
 											</li>
 											<li>
-
-
 											</li>
 										</ul>
+										<a asp-controller="HomeCustomer" asp-action="Booking" asp-route-tourId="@tourDetail.Tour.MaTour"><button class="btn btn-primary">Book Now</button></a>
 									</div>
 								</div>
 								<div class="col-lg-12">

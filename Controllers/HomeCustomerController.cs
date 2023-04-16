@@ -79,14 +79,15 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 
 		public IActionResult TourDetail(int matour)
 		{
-			var tourDetails = (from t in tourDb.Tours
+			var tourDetail = (from t in tourDb.Tours
 							   join ct in tourDb.Cttours on t.MaTour equals ct.MaTour
 							   where t.MaTour.Equals(matour)
 							   select new { Tour = t, Cttour = ct }).ToList();
-			ViewBag.TourDetails = tourDetails;
+			ViewBag.TourDetail = tourDetail;
 			return View();
 		}
 		[Route("booking")]
+		[HttpGet]
 		public IActionResult Booking(int tourId)
 		{
 			var tourDetail = (from t in tourDb.Tours
@@ -106,17 +107,32 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 								   t.AnhTour,
 								   t.NgayBd,
 								   t.NgayKt
-							   }).ToList();
-			var userName = HttpContext.Session.GetString("UserName");
-			var khachhang = (from kh in tourDb.KhachHangs
-							 join tk in tourDb.TaiKhoans on kh.MaKh equals tk.MaKh
-							 where String.Equals( tk.Taikhoan1, userName)
-							 select kh).ToList();
+							   }).ToList();	
 			ViewBag.tourDetail = tourDetail;
-			ViewBag.khachHang = khachhang;
+			ViewBag.khachHang = getCurrentUser();
 			return View();
 		}
-		[Route("tourTheoQuocGia")]
+
+		[Route("booking")]
+		[HttpPost]
+		public IActionResult Booking(int tourId, int numTickets)
+        {
+            if (numTickets <= 0) return BadRequest();
+            getCurrentUser();
+            return View();
+        }
+
+        private KhachHang getCurrentUser()
+        {
+            var userName = HttpContext.Session.GetString("UserName");
+            var khachhang = (from kh in tourDb.KhachHangs
+                             join tk in tourDb.TaiKhoans on kh.MaKh equals tk.MaKh
+                             where String.Equals(tk.Taikhoan1, userName)
+                             select kh).ToList();
+			return khachhang[0];
+        }
+
+        [Route("tourTheoQuocGia")]
 		public IActionResult TourTheoQuocGia(int Maqg, int? page)
 		{
 			int pageNumber = page == null || page < 1 ? 1 : page.Value;
