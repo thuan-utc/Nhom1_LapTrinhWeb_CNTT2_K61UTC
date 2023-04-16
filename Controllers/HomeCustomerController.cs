@@ -129,18 +129,31 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
                 return BadRequest();
             }
             var kh = getCurrentUser();
-            var hd = new HoaDon
-            {
-                MaKh = kh.MaKh,
-                MaTour = tour.MaTour,
-                MaDaiLy = tour.MaDaiLy
+			var hd = new HoaDon
+			{
+				MaKh = kh.MaKh,
+				MaTour = tour.MaTour,
+				MaDaiLy = tour.MaDaiLy,
+				TongTien = tour.Gia * soVe
             };
             tourDb.HoaDons.Add(hd);
             tourDb.SaveChanges();
+			var cthd = new Cthd
+			{
+				MaHd = hd.MaHd,
+				Gia = tour.Gia,
+				SoVe = soVe
+			};
+			tour.Sltcl -= soVe;
+			tourDb.Cthds.Add(cthd);
+			tourDb.SaveChanges();
+			ViewBag.tenKhach = kh.TenKh;
+			ViewBag.sdt = kh.Sdt;
 			ViewBag.tenTour = tour.TenTour;
 			ViewBag.ngayBd = tour.NgayBd;
 			ViewBag.soVe = soVe;
-			ViewBag.tongTien = 1000;
+			ViewBag.tongTien = hd.TongTien;
+			ViewBag.ngayDat = hd.CreatedDate;
             return View("BookSuccessFully");
         }
 
