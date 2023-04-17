@@ -49,16 +49,8 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 			return RedirectToAction("Login", "Access");
 		}
 
-		//Dang ky
-		//[HttpGet]
-		//public IActionResult SignUp()
-		//{
-		//	return View();
-		//}
-
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-
 		public IActionResult SignUp(TaiKhoan user)
 		{
             //if (ModelState.IsValid)
