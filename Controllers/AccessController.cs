@@ -1,11 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using Nhom1_LapTrinhWeb_CNTT2_K61.Models;
+using System.Data.Common;
 
 namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 {
 	public class AccessController : Controller
 	{
 		TourManagementContext db = new TourManagementContext();
+
 
 		[HttpGet]
 		public IActionResult Login()
@@ -38,9 +42,9 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 					}
 				}
 			}
-            ModelState.AddModelError(string.Empty, "Invalid username or password");
-            return View(user);
-        }
+			ModelState.AddModelError(string.Empty, "Invalid username or password");
+			return View(user);
+		}
 		[HttpGet]
 		public IActionResult Logout()
 		{
@@ -50,36 +54,37 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 		}
 
 		//Dang ky
-		//[HttpGet]
-		//public IActionResult SignUp()
-		//{
-		//	return View();
-		//}
+		[HttpGet]
+		public IActionResult SignUp()
+		{
+			return View();
+		}
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-
 		public IActionResult SignUp(TaiKhoan user)
 		{
-            //if (ModelState.IsValid)
-            //{
+			if (ModelState.IsValid)
+			{
+				// Kiểm tra xem tài khoản đã tồn tại chưa
+				var u = db.TaiKhoans.Where(x => x.Taikhoan1.Equals(user.Taikhoan1)).FirstOrDefault();
+				if (u != null)
+				{
+					ModelState.AddModelError("TaiKhoan", "Tài khoản đã được sử dụng");
+					return View(user);
+				}
 
-            //}
-            // Kiểm tra xem tài khoản đã tồn tại chưa
-            var u = db.TaiKhoans.Where(x => x.Taikhoan1.Equals(user.Taikhoan1)).FirstOrDefault();
-            if (u != null)
-            {
-                ModelState.AddModelError("TaiKhoan", "Tài khoản đã được sử dụng");
-                return RedirectToAction("Login", "Access");
-            }
+				// Thêm người dùng mới vào cơ sở dữ liệu
+				db.TaiKhoans.Add(user);
+				db.SaveChanges();
 
-            // Thêm người dùng mới vào cơ sở dữ liệu
-            db.TaiKhoans.Add(user);
-            db.SaveChanges();
+				// Đăng nhập người dùng mới đăng ký
+				HttpContext.Session.SetString("TaiKhoan", user.Taikhoan1);
+				return RedirectToAction("Login", "Access");
+			}
 
-            // Đăng nhập người dùng mới đăng ký
-            //HttpContext.Session.SetString("TaiKhoan", user.Taikhoan1);
-            return RedirectToAction("Login", "Access");
-        }
+			return View(user);
+		}
+
 	}
 }

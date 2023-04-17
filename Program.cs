@@ -2,12 +2,11 @@ using Microsoft.EntityFrameworkCore;
 using Nhom1_LapTrinhWeb_CNTT2_K61.Models;
 using Nhom1_LapTrinhWeb_CNTT2_K61.Repository;
 using NuGet.Protocol.Core.Types;
-
 var builder = WebApplication.CreateBuilder(args);
 
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(); 
 
 builder.Services.AddSession();
 
