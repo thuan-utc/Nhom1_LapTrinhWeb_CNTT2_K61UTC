@@ -108,9 +108,11 @@
     <Folder Include="Areas\Cooperator\Views\Tour\" />
     <Folder Include="Models\ProductModels\" />
     <Folder Include="wwwroot\Assets\css\css_Slider\" />
+    <Folder Include="wwwroot\Template\Temlate Login_new\" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Remove="wwwroot\Assets\css\css_Slider\" />
+    <Content Remove="wwwroot\Template\Temlate Login_new\" />
   </ItemGroup>
 </Project>
