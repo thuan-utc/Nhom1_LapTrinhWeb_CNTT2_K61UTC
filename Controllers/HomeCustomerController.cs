@@ -164,15 +164,6 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
             return View("BookSuccessFully");
         }
 
-        [Route("showAccount")]
-        public IActionResult ShowAccount()
-        {
-            var kh = getCurrentUser();
-            ViewBag.tenKhach = kh.TenKh;
-            return View();
-
-        }
-
         [Route("history")]
         public IActionResult History(int MaKH = 0)
         {

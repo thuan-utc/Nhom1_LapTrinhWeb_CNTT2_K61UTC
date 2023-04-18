@@ -36,12 +36,12 @@ body {
     -webkit-transition: .3s all ease-in-out;
     -o-transition: .3s all ease-in-out;
     transition: .3s all ease-in-out; }
-  body.show-sidebar:before {
+ /* body.show-sidebar:before {
     opacity: 1;
-    visibility: visible; }
+    visibility: visible; }*/
 
 .site-section {
-    padding: 7rem 0;
+    padding: 2rem 0;
     background: url(../images/background.jpg) no-repeat center ;
     background-size: cover;
     background-position: center;
