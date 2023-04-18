@@ -1,6 +1,6 @@
 body {
-  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  background-color: #fcfcfc; }
+    font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
 
 p {
   color: #b3b3b3;
@@ -41,7 +41,11 @@ body {
     visibility: visible; }
 
 .site-section {
-  padding: 7rem 0; }
+    padding: 7rem 0;
+    background: url(../images/background.jpg) no-repeat center ;
+    background-size: cover;
+    background-position: center;
+}
 
 aside, main {
   height: 100vh;
@@ -75,9 +79,9 @@ aside {
     transform: translateX(100%); }
     .show-sidebar aside .toggle .burger:before, .show-sidebar aside .toggle .burger span, .show-sidebar aside .toggle .burger:after {
       background: #000; }
-  .show-sidebar aside {
+.show-sidebar aside {
     -webkit-box-shadow: 10px 0 30px 0 rgba(0, 0, 0, 0.1);
-    box-shadow: 10px 0 30px 0 rgba(0, 0, 0, 0.1); }
+}
   aside .side-inner {
     padding: 30px 0;
     height: 100vh;
@@ -203,7 +207,7 @@ main {
     font-size: 18px; }
   main .post-content .post-meta {
     font-size: 15px;
-    color: #ccc; }
+     }
 
 /* Burger */
 .burger {

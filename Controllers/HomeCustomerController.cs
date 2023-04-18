@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Nhom1_LapTrinhWeb_CNTT2_K61.Models;
 using Nhom1_LapTrinhWeb_CNTT2_K61.Repository;
 using NuGet.Versioning;
+using System.Diagnostics;
 using X.PagedList;
 
 namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
@@ -15,12 +16,15 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 		private readonly ILogger<HomeController> _logger;
 		[Route("index")]
 		[Route("")]
+		
 		public IActionResult Index(int? page)
 		{
 			int pageNumber = page == null || page < 1 ? 1 : page.Value;
 			int pageSize = 9;
 			var listTour = tourDb.Tours;
-			var listSanPham = tourDb.Tours.AsNoTracking().OrderBy(x => x.TenTour);
+            var kh = getCurrentUser();
+            ViewBag.tenKhach = kh.TenKh;
+            var listSanPham = tourDb.Tours.AsNoTracking().OrderBy(x => x.TenTour);
 			PagedList<Tour> lst = new PagedList<Tour>(listSanPham, pageNumber, pageSize);
 			return View(lst);
 		}
@@ -156,9 +160,64 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 			ViewBag.ngayDat = hd.CreatedDate;
             return View("BookSuccessFully");
         }
+        [Route("showAccount")]
+     
+        public IActionResult ShowAccount()
+		{
+			var kh = getCurrentUser();
+			ViewBag.tenKhach = kh.TenKh;
+			return View();
+
+        }
+		[Route("history")]
+		public IActionResult History(int MaKH = 0)
+		{
+			var kh = getCurrentUser();
+			ViewBag.tenKhach = kh.TenKh;
+			if (MaKH == 0)
+			{
+				MaKH = getMaKH();
+			}
+			var history = (from hd in tourDb.HoaDons
+						   join ts in tourDb.Tours on hd.MaTour equals ts.MaTour
+						   join cthd in tourDb.Cthds on hd.MaHd equals cthd.MaHd
+						   join Kh in tourDb.KhachHangs on hd.MaKh equals Kh.MaKh
+						   where String.Equals(Kh.MaKh, MaKH)
+						   select new { Tour = ts, HoaDon = hd, Cthd = cthd, KhachHang = Kh }).ToList();
+			ViewBag.History= history;
 
 
-        private KhachHang getCurrentUser()
+			return View();
+		}
+		[Route("myAccount")]
+		public IActionResult MyAccount()
+		{
+			var kh = getCurrentUser();
+			ViewBag.tenKhach = kh.TenKh;
+			return View();
+		}
+
+		private int getMaKH()
+		{
+			int MaKHang = 0;
+			var userName = HttpContext.Session.GetString("UserName");
+			var khachhang = (from kh in tourDb.KhachHangs
+							 join tk in tourDb.TaiKhoans on kh.MaKh equals tk.MaKh
+							 where String.Equals(tk.Taikhoan1, userName)
+							 select kh).ToList();
+			if (khachhang.Count > 0)
+			{
+				MaKHang = khachhang[0].MaKh;
+			}
+			return MaKHang;
+		}
+
+
+
+
+
+
+		private KhachHang getCurrentUser()
         {
             var userName = HttpContext.Session.GetString("UserName");
             var khachhang = (from kh in tourDb.KhachHangs

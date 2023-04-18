@@ -29,11 +29,11 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
 						  }).ToList();
 			return tourCustomers;
 		}
-		[HttpGet("{caulacboid}")]
-		public IEnumerable<TourCustomer> GetTourByNational(int MaQgia)
+		[HttpGet("{MaQg}")]
+		public IEnumerable<TourCustomer> GetTourByNational(int MaQg)
 		{
 			var tourCustomers = (from p in db.Tours
-								 where p.MaQg == MaQgia
+								 where p.MaQg == MaQg
 								 select new TourCustomer
 						  {
 									 MaTour = p.MaTour,

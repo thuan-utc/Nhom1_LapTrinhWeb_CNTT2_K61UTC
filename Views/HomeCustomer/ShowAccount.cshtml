@@ -1,0 +1,143 @@
+﻿@{
+    ViewData["Title"] = "ShowAccount";
+    Layout = null;
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../Template/TemplateMyAccount/fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="../Template/TemplateMyAccount/css/owl.carousel.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../Template/TemplateMyAccount/css/bootstrap.min.css">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="../Template/TemplateMyAccount/css/style.css">
+    <link rel="stylesheet" href="../Template/TemplateMyAccount/css/custom.css">
+
+    <title>My Account</title>
+</head>
+<body class="show-sidebar " style="width:80%">
+
+
+	<aside class="sidebar">
+        <div class="toggle">
+            <a href="#" class="burger js-menu-toggle" data-toggle="collapse" data-target="#main-navbar">
+                <span></span>
+            </a>
+        </div>
+        <div class="side-inner">
+
+            <div class="profile">
+                <img src="../Template/TemplateMyAccount/images/person_xinh.jpg" alt="Image" >
+				<h3 class="name">@ViewBag.tenKhach</h3>
+                <span class="country">Web Designer</span>
+            </div>
+
+
+            <div class="nav-menu">
+                <ul>
+					<li><a asp-controller="HomeCustomer" asp-action="MyAccount"><span class="icon-account mr-3"></span>Account</a></li>
+                    <li> <a asp-controller="HomeCustomer" asp-action="History"><span class="icon-history mr-3"></span>History</a></li>
+					<li><a asp-controller="HomeCustomer" asp-action="Index"><i class="fas fa-arrow-left"></i> Previous Page</a></li>
+                    <li><a href="#"><span class="icon-sign-out mr-3"></span>Sign out</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </aside>
+	<main >
+        <div class="site-section">
+            <div class="container">
+                <div class="row justify-content-center">
+						
+									
+									
+										
+
+									@*<section class="product-details spad">
+									<div class="container">
+									<div class="row">
+									<div class="col-lg-6 col-md-6">
+									<div class="product__details__pic">
+									<div class="product__details__pic__item">
+									<img class="product__details__pic__item--large"
+									src="@Url.Content("~/Media/ImagesTour/"+@ViewBag.History.Tour.AnhTour +".jpg")" alt="">
+									</div>
+									</div>
+									</div>
+									<div class="col-lg-5 col-md-5" style="float: right;">
+									<div class="product__details__text">
+									<h3>@ViewBag.History.Tour.TenTour</h3>
+									<div class="product__details__rating">
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star-half-o"></i>
+									<span>(18 reviews)</span>
+									</div>
+									<div class="product__details__price"> @ViewBag.History.Tour.Gia</div>
+
+									<div class="product__details__quantity">
+									<div class="quantity">
+									<div class="pro-qty">
+									</div>
+									</div>
+									</div>
+									<a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+									<ul style="font-size: 20px;">
+									<li><b>Nơi khởi hành </b> <span>@ViewBag.History.Tour.NoiKhoiHanh</span></li>
+									<li><b>Ngày bắt đầu :</b> <span>@ViewBag.History.Tour.NgayBd</span></li>
+									<li><b>Ngày kết thúc:</b> <span>@ViewBag.History.Tour.NgayKt</span></li>
+									<li><b>Số vé còn lại:</b> <span>@ViewBag.History.Tour.Sltcl</span></li>
+									<li><b>Số vé đặt :</b> <span>@ViewBag.History.Cthd.SoVe</span></li>
+									<li><b>Ngày đặt :</b> <span>@ViewBag.History.HoaDon.CreateDate</span></li>
+									<li><b>Tổng tiền:</b> <span>@ViewBag.History.HoaDon.TongTien</span></li>
+
+									<li>
+									<div class="share">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-instagram"></i></a>
+									<a href="#"><i class="fa fa-pinterest"></i></a>
+									</div>
+									</li>
+									<li>
+									</li>
+									</ul>
+									</div>
+									</div>
+									</div>
+
+									</div>
+									</section>*@
+
+								</>
+							</div>
+						
+                          
+                    </div>
+                </div>
+           
+       
+    </main>
+
+
+
+    <script src="../Template/TemplateMyAccount/js/jquery-3.3.1.min.js"></script>
+    <script src="../Template/TemplateMyAccount/js/popper.min.js"></script>
+    <script src="../Template/TemplateMyAccount/js/bootstrap.min.js"></script>
+    <script src="../Template/TemplateMyAccount/js/main.js"></script>
+</body>
+</html>
