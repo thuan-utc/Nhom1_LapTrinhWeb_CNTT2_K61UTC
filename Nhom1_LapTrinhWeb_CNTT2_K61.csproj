@@ -108,11 +108,11 @@
     <Folder Include="Areas\Cooperator\Views\Tour\" />
     <Folder Include="Models\ProductModels\" />
     <Folder Include="wwwroot\Assets\css\css_Slider\" />
-    <Folder Include="wwwroot\Template\Template Login_New\" />
+    <Folder Include="wwwroot\Template\TemplateMyAccount\" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Remove="wwwroot\Assets\css\css_Slider\" />
-    <Content Remove="wwwroot\Template\Template Login_New\" />
+    <Content Remove="wwwroot\Template\TemplateMyAccount\" />
   </ItemGroup>
 </Project>
