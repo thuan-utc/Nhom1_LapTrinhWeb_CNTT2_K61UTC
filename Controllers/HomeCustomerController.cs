@@ -187,10 +187,19 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
         public IActionResult MyAccount()
         {
             var kh = getCurrentUser();
+            
             ViewBag.tenKhach = kh.TenKh;
-            return View();
-        }
+            ViewBag.addRess = kh.DiaChi;
+            ViewBag.canCuoc = kh.SoCmnd;
+            ViewBag.phone = kh.Sdt;
 
+            var tk = tourDb.TaiKhoans.FirstOrDefault(tk => tk.MaKh == kh.MaKh);
+            ViewBag.userName = tk.Taikhoan1 ;
+            ViewBag.eMail = tk.Email;
+            ViewBag.aBout = "";
+            
+            return View();
+        } 
         private int getMaKH()
         {
             int MaKHang = 0;

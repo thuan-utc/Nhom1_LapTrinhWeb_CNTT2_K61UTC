@@ -8,7 +8,7 @@
                     <h3 class="mb-0">My account</h3>
                 </div>
                 <div class="col-4 text-right">
-                    <a href="#!" class="btn btn-sm btn-primary">Settings</a>
+        <a asp-controller="customer" asp-action="editMyaccount" class="btn btn-sm btn-primary">Settings</a>
                 </div>
             </div>
 <div class="card-body">
@@ -19,22 +19,25 @@
                 <div class="col-lg-6">
                     <div class="form-group focused">
                         <label class="form-control-label" for="input-username">Username</label>
-                        <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="lucky.jesse">
+                        <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="@ViewBag.userName">
                     </div>
+
                 </div>
                 <div class="col-lg-6">
                     <div class="form-group">
                         <label class="form-control-label" for="input-email">Email address</label>
-                        <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="jesse@example.com">
+                        <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="@ViewBag.eMail">
                     </div>
                 </div>
+
             </div>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="form-group focused">
-                        <label class="form-control-label" for="input-first-name"> Name</label>
-                        <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" value="Lucky">
+                        <label class="form-control-label" for="input-first-name">Name</label>
+                        <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" value="@ViewBag.tenKhach">
                     </div>
+
                 </div>
 
             </div>
@@ -47,23 +50,26 @@
                 <div class="col-md-12">
                     <div class="form-group focused">
                         <label class="form-control-label" for="input-address">Address</label>
-                        <input id="input-address" class="form-control form-control-alternative" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09" type="text">
+                        <input id="input-address" class="form-control form-control-alternative" placeholder="Home Address" value="@ViewBag.addRess" type="text">
                     </div>
+
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-6">
                     <div class="form-group focused">
                         <label class="form-control-label" for="input-city">Citizen Identification</label>
-                        <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="City" value="New York">
+                        <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="City" value="@ViewBag.canCuoc">
                     </div>
                 </div>
+
                 <div class="col-lg-6">
                     <div class="form-group focused">
                         <label class="form-control-label" for="input-country">Phone</label>
-                        <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="Country" value="United States">
+                        <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="Country" value="@ViewBag.phone">
                     </div>
                 </div>
+
 
             </div>
         </div>
@@ -73,8 +79,9 @@
         <div class="pl-lg-4">
             <div class="form-group focused">
                 <label>About Me</label>
-                <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about you ...">A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea>
+                <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about you ...">@ViewBag.aBout</textarea>
             </div>
+
         </div>
     </form>
 </div>
