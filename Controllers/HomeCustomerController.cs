@@ -178,7 +178,7 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
                            join cthd in tourDb.Cthds on hd.MaHd equals cthd.MaHd
                            join Kh in tourDb.KhachHangs on hd.MaKh equals Kh.MaKh
                            where String.Equals(Kh.MaKh, MaKH)
-                           select new { Tour = ts, HoaDon = hd, Cthd = cthd, KhachHang = Kh }).ToList();
+                           select new { Tour = ts, HoaDon = hd, Cthd = cthd, KhachHang = Kh }).OrderByDescending(x => x.HoaDon.CreatedDate).ToList();
             ViewBag.History = history;
             return View();
         }
