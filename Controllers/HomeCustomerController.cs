@@ -187,7 +187,17 @@ namespace Nhom1_LapTrinhWeb_CNTT2_K61.Controllers
         public IActionResult MyAccount()
         {
             var kh = getCurrentUser();
+            var userName = HttpContext.Session.GetString("UserName");
+            var tk = (from t in tourDb.TaiKhoans where userName.Equals(t.Taikhoan1) select t).ToList();
+            if (tk == null)
+            {
+                RedirectToAction("Access", "Login");
+            }
             ViewBag.tenKhach = kh.TenKh;
+            ViewBag.diaChi = kh.DiaChi;
+            ViewBag.sdt = kh.Sdt;
+            ViewBag.userName = tk[0].Taikhoan1;
+            ViewBag.email = tk[0].Email;    
             return View();
         }
 
